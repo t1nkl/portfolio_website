@@ -45,6 +45,15 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "Footer",
+  data: () => ({
+    //
+  }),
+};
+</script>
+
 <style lang="scss">
 .footer {
   position: relative;

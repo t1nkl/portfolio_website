@@ -1,49 +1,47 @@
 <template>
-  <div>
-    <div class="home-holder">
-      <div class="logo">
-        <img
-          alt="t1nkl - Web Developer - Logo"
-          class="logo-txt"
-          src="../assets/logo.png"
-          width="300"
-        />
-        <div class="logo-bg-holder">
-          <div class="logo-bg oval-big"></div>
-          <div class="logo-bg oval-small"></div>
-          <div class="logo-bg circle"></div>
-        </div>
+  <div class="home-holder">
+    <div class="logo" id="logo">
+      <img
+        alt="t1nkl - Web Developer - Logo"
+        class="logo-txt"
+        id="logo-txt"
+        src="../assets/logo.png"
+        width="300"
+      />
+      <div class="logo-bg-holder" id="logo-bg-holder">
+        <div class="logo-bg oval-big" id="oval-big"></div>
+        <div class="logo-bg oval-small" id="oval-small"></div>
+        <div class="logo-bg circle" id="circle"></div>
       </div>
+    </div>
 
-      <div class="custom-navigation">
-        <ul>
-          <li>
-            <router-link :to="'/skills'" exact>
-              skills<span>.</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="'/works'" exact>
-              works<span>.</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="'/life'" exact> life<span>.</span> </router-link>
-          </li>
-          <li>
-            <router-link :to="'/contact'" exact>
-              contact<span>.</span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
+    <div class="custom-navigation" id="custom-navigation">
+      <ul>
+        <li>
+          <router-link :to="'/skills'" exact>
+            skills<span>.</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="'/works'" exact> works<span>.</span> </router-link>
+        </li>
+        <li>
+          <router-link :to="'/life'" exact> life<span>.</span></router-link>
+        </li>
+        <li>
+          <router-link :to="'/contact'" exact>
+            contact<span>.</span>
+          </router-link>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { Back, Expo, TimelineMax } from "gsap";
-import $ from "jquery";
+import { Back, Expo, TimelineMax, gsap } from "gsap";
+import { CSSPlugin } from "gsap/CSSPlugin";
+gsap.registerPlugin(CSSPlugin);
 
 export default {
   name: "Index",
@@ -52,30 +50,30 @@ export default {
   }),
   methods: {
     animateLogo() {
-      this.timeline.set($(".logo .circle"), {
+      this.timeline.set("#circle", {
         scale: 0,
         z: 0.01,
       });
-      this.timeline.set($(".logo .oval-small"), {
+      this.timeline.set("#oval-small", {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
       });
-      this.timeline.set($(".logo .oval-big"), {
+      this.timeline.set("#oval-big", {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
       });
-      this.timeline.set($(".logo .logo-txt"), {
+      this.timeline.set("#logo-txt", {
         autoAlpha: 0,
         z: 0.01,
       });
-      this.timeline.set($(".custom-navigation"), {
+      this.timeline.set("#custom-navigation", {
         autoAlpha: 0,
         z: 0.01,
       });
       this.timeline.fromTo(
-        $(".logo .circle"),
+        "#circle",
         3,
         { scale: 0, transformOrigin: "50% 50%" },
         {
@@ -86,7 +84,7 @@ export default {
         }
       );
       this.timeline.fromTo(
-        $(".logo .oval-small"),
+        "#oval-small",
         2.5,
         {
           autoAlpha: 0,
@@ -103,7 +101,7 @@ export default {
         "-=2.25"
       );
       this.timeline.fromTo(
-        $(".logo .oval-big"),
+        "#oval-big",
         2.5,
         {
           autoAlpha: 0,
@@ -120,13 +118,13 @@ export default {
         "-=2.25"
       );
       this.timeline.to(
-        $(".logo .oval-big"),
+        "#oval-big",
         0,
         { className: "+=rotating-fast", ease: Expo.easeOut },
         "+=0.35"
       );
       this.timeline.to(
-        $(".logo .oval-small"),
+        "#oval-small",
         0,
         {
           className: "+=rotating-slow",
@@ -135,7 +133,7 @@ export default {
         "+=0.35"
       );
       this.timeline.fromTo(
-        $(".logo .logo-txt"),
+        "#logo-txt",
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -146,7 +144,7 @@ export default {
         "-=2.65"
       );
       this.timeline.fromTo(
-        $(".custom-navigation"),
+        "#custom-navigation",
         2.5,
         { autoAlpha: 0, x: -80 },
         {

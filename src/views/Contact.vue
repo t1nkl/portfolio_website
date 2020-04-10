@@ -51,6 +51,9 @@
 <script>
 export default {
   name: "Contact",
+  data: () => ({
+    //
+  }),
 };
 </script>
 

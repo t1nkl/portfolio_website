@@ -73,7 +73,6 @@
 
 <script>
 import { TimelineMax } from "gsap";
-import $ from "jquery";
 
 export default {
   name: "Works",
@@ -98,10 +97,13 @@ export default {
     },
     over(event) {
       let dataImage = event.target.dataset.image;
-      $("body").attr("style", "background-color: " + dataImage);
+      document.getElementsByTagName(
+        "body"
+      )[0].style.backgroundColor = dataImage;
     },
     leave() {
-      $("body").attr("style", "background-color: #FFFFFF");
+      document.getElementsByTagName("body")[0].style.backgroundColor =
+        "#FFFFFF";
     },
     fetchData() {
       this.works = [

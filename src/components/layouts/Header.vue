@@ -1,24 +1,29 @@
 <template>
   <div>
-    <nav class="navigation" v-if="$route.name !== 'api.index_page'">
-      <div class="logo">
+    <nav
+      class="navigation"
+      id="navigation"
+      v-if="$route.name !== 'api.index_page'"
+    >
+      <div class="logo" id="logo">
         <router-link :to="'/'" exact>
           <img
             alt="t1nkl - Web Developer - Logo"
             class="logo-txt"
             height="199"
+            id="logo-txt"
             src="../../assets/logo.png"
             width="380"
           />
           <div class="logo-bg-holder">
-            <div class="logo-bg oval-big"></div>
-            <div class="logo-bg oval-small"></div>
-            <div class="logo-bg circle"></div>
+            <div class="logo-bg oval-big" id="oval-big"></div>
+            <div class="logo-bg oval-small" id="oval-small"></div>
+            <div class="logo-bg circle" id="circle"></div>
           </div>
         </router-link>
       </div>
 
-      <div class="main-navigation">
+      <div class="main-navigation" id="main-navigation">
         <ul>
           <li>
             <router-link :to="'/skills'" exact>
@@ -31,7 +36,7 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="'/life'" exact> life<span>.</span> </router-link>
+            <router-link :to="'/life'" exact> life<span>.</span></router-link>
           </li>
           <li>
             <router-link :to="'/contact'" exact>
@@ -45,8 +50,9 @@
 </template>
 
 <script>
-import { Back, Expo, TimelineMax } from "gsap";
-import $ from "jquery";
+import { Back, Expo, TimelineMax, gsap } from "gsap";
+import { CSSPlugin } from "gsap/CSSPlugin";
+gsap.registerPlugin(CSSPlugin);
 
 export default {
   name: "Header",
@@ -55,147 +61,133 @@ export default {
   }),
   methods: {
     animateNavigation() {
-      $(".navigation .oval-big").removeClass("rotating-fast");
-      $(".navigation .oval-small").removeClass("rotating-slow");
+      document.getElementById("#oval-big") &&
+        document.getElementById("#oval-big").classList.remove("rotating-fast");
+      document.getElementById("#oval-small") &&
+        document
+          .getElementById("#oval-small")
+          .classList.remove("rotating-slow");
 
-      if ($(".navigation .circle").length) {
-        this.timeline.set($(".navigation .circle"), {
+      this.timeline.set("#circle", {
+        scale: 0,
+        z: 0.01,
+      });
+
+      this.timeline.set("#oval-small", {
+        autoAlpha: 0,
+        scale: 0,
+        z: 0.01,
+      });
+
+      this.timeline.set("#oval-big", {
+        autoAlpha: 0,
+        scale: 0,
+        z: 0.01,
+      });
+
+      this.timeline.set("#logo-txt", {
+        autoAlpha: 0,
+        z: 0.01,
+      });
+
+      this.timeline.set("#main-navigation", {
+        autoAlpha: 0,
+        z: 0.01,
+      });
+
+      this.timeline.fromTo(
+        "#circle",
+        3,
+        {
           scale: 0,
-          z: 0.01,
-        });
-      }
+          transformOrigin: "50% 50%",
+        },
+        {
+          force3D: true,
+          scale: 1,
+          transformOrigin: "50% 50%",
+          ease: Back.easeOut.config(2.25),
+        }
+      );
 
-      if ($(".navigation .oval-small").length) {
-        this.timeline.set($(".navigation .oval-small"), {
+      this.timeline.fromTo(
+        "#oval-small",
+        2.5,
+        {
           autoAlpha: 0,
           scale: 0,
-          z: 0.01,
-        });
-      }
+          transformOrigin: "50% 50%",
+        },
+        {
+          force3D: true,
+          autoAlpha: 0.45,
+          scale: 1,
+          transformOrigin: "50% 50%",
+          ease: Back.easeOut.config(2.25),
+        },
+        "-=2.25"
+      );
 
-      if ($(".navigation .oval-big").length) {
-        this.timeline.set($(".navigation .oval-big"), {
+      this.timeline.fromTo(
+        "#oval-big",
+        2.5,
+        {
           autoAlpha: 0,
           scale: 0,
-          z: 0.01,
-        });
-      }
+          transformOrigin: "50% 50%",
+        },
+        {
+          force3D: true,
+          autoAlpha: 0.25,
+          scale: 1,
+          transformOrigin: "50% 50%",
+          ease: Back.easeOut.config(2.25),
+        },
+        "-=2.25"
+      );
 
-      if ($(".navigation .oval-txt").length) {
-        this.timeline.set($(".navigation .logo-txt"), {
-          autoAlpha: 0,
-          z: 0.01,
-        });
-      }
+      this.timeline.fromTo(
+        "#logo-txt",
+        2.5,
+        { autoAlpha: 0, x: -80 },
+        {
+          autoAlpha: 1,
+          x: 0,
+          ease: Expo.easeOut,
+        },
+        "-=2.65"
+      );
 
-      if ($(".navigation .main-navigation").length) {
-        this.timeline.set($(".navigation .main-navigation"), {
-          autoAlpha: 0,
-          z: 0.01,
-        });
-      }
+      this.timeline.fromTo(
+        "#main-navigation",
+        2.5,
+        { autoAlpha: 0, x: -80 },
+        {
+          autoAlpha: 1,
+          x: 0,
+          ease: Expo.easeOut,
+        },
+        "-=2.5"
+      );
 
-      if ($(".navigation .circle").length) {
-        this.timeline.fromTo(
-          $(".navigation .circle"),
-          3,
-          {
-            scale: 0,
-            transformOrigin: "50% 50%",
-          },
-          {
-            force3D: true,
-            scale: 1,
-            transformOrigin: "50% 50%",
-            ease: Back.easeOut.config(2.25),
-          }
-        );
-      }
-
-      if ($(".navigation .oval-small").length) {
-        this.timeline.fromTo(
-          $(".navigation .oval-small"),
-          2.5,
-          {
-            autoAlpha: 0,
-            scale: 0,
-            transformOrigin: "50% 50%",
-          },
-          {
-            force3D: true,
-            autoAlpha: 0.45,
-            scale: 1,
-            transformOrigin: "50% 50%",
-            ease: Back.easeOut.config(2.25),
-          },
-          "-=2.25"
-        );
-      }
-
-      if ($(".navigation .oval-big").length) {
-        this.timeline.fromTo(
-          $(".navigation .oval-big"),
-          2.5,
-          {
-            autoAlpha: 0,
-            scale: 0,
-            transformOrigin: "50% 50%",
-          },
-          {
-            force3D: true,
-            autoAlpha: 0.25,
-            scale: 1,
-            transformOrigin: "50% 50%",
-            ease: Back.easeOut.config(2.25),
-          },
-          "-=2.25"
-        );
-      }
-
-      if ($(".navigation .logo-txt").length) {
-        this.timeline.fromTo(
-          $(".navigation .logo-txt"),
-          2.5,
-          { autoAlpha: 0, x: -80 },
-          {
-            autoAlpha: 1,
-            x: 0,
-            ease: Expo.easeOut,
-          },
-          "-=2.65"
-        );
-      }
-
-      if ($(".navigation .main-navigation").length) {
-        this.timeline.fromTo(
-          $(".navigation .main-navigation"),
-          2.5,
-          { autoAlpha: 0, x: -80 },
-          {
-            autoAlpha: 1,
-            x: 0,
-            ease: Expo.easeOut,
-          },
-          "-=2.5"
-        );
-      }
-
-      if ($(".navigation .fade-component").length) {
-        this.timeline.fromTo(
-          $(".fade-component"),
-          2.5,
-          { autoAlpha: 0 },
-          {
-            autoAlpha: 1,
-            ease: Expo.easeOut,
-          },
-          "-=2.5"
-        );
-      }
+      // if ($(".navigation .fade-component").length) {
+      //   this.timeline.fromTo(
+      //     $(".fade-component"),
+      //     2.5,
+      //     { autoAlpha: 0 },
+      //     {
+      //       autoAlpha: 1,
+      //       ease: Expo.easeOut,
+      //     },
+      //     "-=2.5"
+      //   );
+      // }
 
       setTimeout(function() {
-        $(".navigation .oval-big").addClass("rotating-fast");
-        $(".navigation .oval-small").addClass("rotating-slow");
+        document.getElementById("#oval-big") &&
+          document.getElementById("#oval-big").classList.add("rotating-fast");
+        document.getElementById("#oval-small") &&
+          document.getElementById("#oval-small").classList.add("rotating-slow");
       }, 2000);
     },
   },

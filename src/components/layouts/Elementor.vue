@@ -20,7 +20,9 @@ export default {
     "header-layout": headerLayout,
     "footer-layout": footerLayout,
   },
-  data: () => ({}),
+  data: () => ({
+    //
+  }),
 };
 </script>
 
