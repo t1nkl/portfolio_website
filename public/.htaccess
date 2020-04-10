@@ -1,0 +1,91 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    #
+    # Handle Authorization Header
+    #
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    #
+    # Redirect Trailing Slashes If Not A Folder...
+    #
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    #
+    # Handle Front Controller...
+    #
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.html [L]
+
+    #
+    # Redirect index.php
+    #
+    RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+    RewriteRule (.*?).index\.html/*(.*) /$1$2 [R=301,NE,L]
+
+    #
+    # Block <script>, PHP Globals and _REQUEST changes
+    #
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+    RewriteRule ^(.*)$ index.html [F,L]
+
+    #
+    # Block all PHP files, except index
+    #
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME} \.php$
+    RewriteRule !^index.html index.html [L,NC]
+
+    #
+    # Black listed folders
+    #
+    RewriteRule ^src/.* index.html [L,NC]
+    RewriteRule ^public/.* index.html [L,NC]
+
+    #
+    # Compres text, html, javascript, css, xml:
+    #
+    <ifModule mod_deflate.c>
+        AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
+    </ifModule>
+
+    #
+    # Browser cache
+    #
+    # <ifModule mod_expires.c>
+    #     ExpiresActive On
+
+    #     ExpiresDefault "access plus 1 days"
+
+    #     ExpiresByType image/x-icon "access plus 1 month"
+    #     ExpiresByType image/jpeg "access plus 4 weeks"
+    #     ExpiresByType image/png "access plus 30 days"
+    #     ExpiresByType image/gif "access plus 43829 minutes"
+    #     ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+
+    #     ExpiresByType text/css "access plus 604800 seconds"
+    #     ExpiresByType text/javascript "access plus 604800 seconds"
+    #     ExpiresByType application/javascript "access plus 604800 seconds"
+    #     ExpiresByType application/x-javascript "access plus 604800 seconds"
+
+    #     ExpiresByType text/html "access plus 43200 seconds"
+
+    #     ExpiresByType application/xhtml+xml "access plus 600 seconds"
+
+    #     ExpiresByType application/x-font-ttf "access plus 1 month"
+    #     ExpiresByType font/opentype "access plus 1 month"
+    #     ExpiresByType application/x-font-woff "access plus 1 month"
+    #     ExpiresByType image/svg+xml "access plus 1 month"
+    #     ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+    # </ifModule>
+</IfModule>
