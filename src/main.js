@@ -11,6 +11,7 @@ Vue.use(VLazyImagePlugin);
 Vue.use(VueTyperPlugin);
 Vue.set(Vue.prototype, "chance", Chance);
 Vue.mixin(mixins);
+
 Vue.config.productionTip = false;
 
 new Vue({

@@ -1,45 +1,35 @@
 <template>
-  <div>
-    <div class="footer fade-component" v-if="$route.name !== 'api.index_page'">
-      <h2 class="divider"><span></span></h2>
-      <div class="footer-inner">
-        <div class="copyright">
-          &copy; With &#9829; on Vue.js & GSAP by t1nkl /
-          <a href="https://github.com/t1nkl/Portfolio-Website" target="_blank"
-            >GITHUB THIS</a
-          >
-        </div>
-        <div class="extra">
-          <ul>
-            <li>
-              <router-link :to="'/skills'" exact>
-                skills<span>.</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link :to="'/works'" exact>
-                works<span>.</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link :to="'/life'" exact>
-                life<span>.</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link :to="'/contact'" exact>
-                contact<span>.</span>
-              </router-link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a class="green" href="mailto:kyryll.kovalenko@gmail.com">
-                <strong>kyryll.kovalenko@gmail.com</strong>
-              </a>
-            </li>
-          </ul>
-        </div>
+  <div class="footer fade-component" v-if="$route.name !== 'api.index_page'">
+    <h2 class="divider"><span></span></h2>
+    <div class="footer-inner">
+      <div class="copyright">
+        &copy; With &#9829; on Vue.js & GSAP by t1nkl /
+        <a href="https://github.com/t1nkl/Portfolio-Website" target="_blank"
+          >GITHUB THIS</a
+        >
+      </div>
+      <div class="extra">
+        <ul>
+          <li>
+            <router-link :to="'/skills'" exact> skills<span>.</span></router-link>
+          </li>
+          <li>
+            <router-link :to="'/works'" exact> works<span>.</span></router-link>
+          </li>
+          <li>
+            <router-link :to="'/life'" exact> life<span>.</span></router-link>
+          </li>
+          <li>
+            <router-link :to="'/contact'" exact> contact<span>.</span></router-link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a class="green" href="mailto:kyryll.kovalenko@gmail.com">
+              <strong>kyryll.kovalenko@gmail.com</strong>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

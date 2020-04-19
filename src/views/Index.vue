@@ -1,37 +1,33 @@
 <template>
   <div class="home-holder">
-    <div class="logo" id="logo">
+    <div class="logo" id="index_logo">
       <img
         alt="t1nkl - Web Developer - Logo"
         class="logo-txt"
-        id="logo-txt"
+        id="index_logo-txt"
         src="../assets/logo.png"
         width="300"
       />
-      <div class="logo-bg-holder" id="logo-bg-holder">
-        <div class="logo-bg oval-big" id="oval-big"></div>
-        <div class="logo-bg oval-small" id="oval-small"></div>
-        <div class="logo-bg circle" id="circle"></div>
+      <div class="logo-bg-holder" id="index_logo-bg-holder">
+        <div class="logo-bg oval-big" id="index_oval-big"></div>
+        <div class="logo-bg oval-small" id="index_oval-small"></div>
+        <div class="logo-bg circle" id="index_circle"></div>
       </div>
     </div>
 
-    <div class="custom-navigation" id="custom-navigation">
+    <div class="custom-navigation" id="index_custom-navigation">
       <ul>
         <li>
-          <router-link :to="'/skills'" exact>
-            skills<span>.</span>
-          </router-link>
+          <router-link :to="'/skills'" exact> skills<span>.</span></router-link>
         </li>
         <li>
-          <router-link :to="'/works'" exact> works<span>.</span> </router-link>
+          <router-link :to="'/works'" exact> works<span>.</span></router-link>
         </li>
         <li>
           <router-link :to="'/life'" exact> life<span>.</span></router-link>
         </li>
         <li>
-          <router-link :to="'/contact'" exact>
-            contact<span>.</span>
-          </router-link>
+          <router-link :to="'/contact'" exact> contact<span>.</span></router-link>
         </li>
       </ul>
     </div>
@@ -39,8 +35,9 @@
 </template>
 
 <script>
-import { Back, Expo, TimelineMax, gsap } from "gsap";
+import { Back, Expo, gsap, TimelineMax } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
+
 gsap.registerPlugin(CSSPlugin);
 
 export default {
@@ -50,30 +47,35 @@ export default {
   }),
   methods: {
     animateLogo() {
-      this.timeline.set("#circle", {
+      this.timeline.set("#index_circle", {
         scale: 0,
         z: 0.01,
       });
-      this.timeline.set("#oval-small", {
-        autoAlpha: 0,
-        scale: 0,
-        z: 0.01,
-      });
-      this.timeline.set("#oval-big", {
+
+      this.timeline.set("#index_oval-small", {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
       });
-      this.timeline.set("#logo-txt", {
+
+      this.timeline.set("#index_oval-big", {
+        autoAlpha: 0,
+        scale: 0,
+        z: 0.01,
+      });
+
+      this.timeline.set("#index_logo-txt", {
         autoAlpha: 0,
         z: 0.01,
       });
-      this.timeline.set("#custom-navigation", {
+
+      this.timeline.set("#index_custom-navigation", {
         autoAlpha: 0,
         z: 0.01,
       });
+
       this.timeline.fromTo(
-        "#circle",
+        "#index_circle",
         3,
         { scale: 0, transformOrigin: "50% 50%" },
         {
@@ -83,8 +85,9 @@ export default {
           ease: Back.easeOut.config(2.25),
         }
       );
+
       this.timeline.fromTo(
-        "#oval-small",
+        "#index_oval-small",
         2.5,
         {
           autoAlpha: 0,
@@ -100,8 +103,9 @@ export default {
         },
         "-=2.25"
       );
+
       this.timeline.fromTo(
-        "#oval-big",
+        "#index_oval-big",
         2.5,
         {
           autoAlpha: 0,
@@ -117,23 +121,26 @@ export default {
         },
         "-=2.25"
       );
-      this.timeline.to(
-        "#oval-big",
-        0,
-        { className: "+=rotating-fast", ease: Expo.easeOut },
-        "+=0.35"
-      );
-      this.timeline.to(
-        "#oval-small",
-        0,
-        {
-          className: "+=rotating-slow",
-          ease: Expo.easeOut,
-        },
-        "+=0.35"
-      );
+
+      // this.timeline.to(
+      //   "#index_oval-big",
+      //   0,
+      //   { className: "+=rotating-fast", ease: Expo.easeOut },
+      //   "+=0.35"
+      // );
+
+      // this.timeline.to(
+      //   "#index_oval-small",
+      //   0,
+      //   {
+      //     className: "+=rotating-slow",
+      //     ease: Expo.easeOut,
+      //   },
+      //   "+=0.35"
+      // );
+
       this.timeline.fromTo(
-        "#logo-txt",
+        "#index_logo-txt",
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -143,8 +150,9 @@ export default {
         },
         "-=2.65"
       );
+
       this.timeline.fromTo(
-        "#custom-navigation",
+        "#index_custom-navigation",
         2.5,
         { autoAlpha: 0, x: -80 },
         {

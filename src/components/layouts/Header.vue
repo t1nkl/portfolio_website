@@ -1,57 +1,50 @@
 <template>
-  <div>
-    <nav
-      class="navigation"
-      id="navigation"
-      v-if="$route.name !== 'api.index_page'"
-    >
-      <div class="logo" id="logo">
-        <router-link :to="'/'" exact>
-          <img
-            alt="t1nkl - Web Developer - Logo"
-            class="logo-txt"
-            height="199"
-            id="logo-txt"
-            src="../../assets/logo.png"
-            width="380"
-          />
-          <div class="logo-bg-holder">
-            <div class="logo-bg oval-big" id="oval-big"></div>
-            <div class="logo-bg oval-small" id="oval-small"></div>
-            <div class="logo-bg circle" id="circle"></div>
-          </div>
-        </router-link>
-      </div>
+  <nav
+    class="navigation"
+    id="header_navigation"
+    v-if="$route.name !== 'api.index_page'"
+  >
+    <div class="logo" id="header_logo">
+      <router-link :to="'/'" exact>
+        <img
+          alt="t1nkl - Web Developer - Logo"
+          class="logo-txt"
+          height="199"
+          id="header_logo-txt"
+          src="../../assets/logo.png"
+          width="380"
+        />
+        <div class="logo-bg-holder">
+          <div class="logo-bg oval-big" id="header_oval-big"></div>
+          <div class="logo-bg oval-small" id="header_oval-small"></div>
+          <div class="logo-bg circle" id="header_circle"></div>
+        </div>
+      </router-link>
+    </div>
 
-      <div class="main-navigation" id="main-navigation">
-        <ul>
-          <li>
-            <router-link :to="'/skills'" exact>
-              skills<span>.</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="'/works'" exact>
-              works<span>.</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="'/life'" exact> life<span>.</span></router-link>
-          </li>
-          <li>
-            <router-link :to="'/contact'" exact>
-              contact<span>.</span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+    <div class="main-navigation" id="header_main-navigation">
+      <ul>
+        <li>
+          <router-link :to="'/skills'" exact> skills<span>.</span></router-link>
+        </li>
+        <li>
+          <router-link :to="'/works'" exact> works<span>.</span></router-link>
+        </li>
+        <li>
+          <router-link :to="'/life'" exact> life<span>.</span></router-link>
+        </li>
+        <li>
+          <router-link :to="'/contact'" exact> contact<span>.</span></router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <script>
-import { Back, Expo, TimelineMax, gsap } from "gsap";
+import { Back, Expo, gsap, TimelineMax } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
+
 gsap.registerPlugin(CSSPlugin);
 
 export default {
@@ -61,42 +54,44 @@ export default {
   }),
   methods: {
     animateNavigation() {
-      document.getElementById("#oval-big") &&
-        document.getElementById("#oval-big").classList.remove("rotating-fast");
-      document.getElementById("#oval-small") &&
+      document.getElementById("#header_oval-big") &&
         document
-          .getElementById("#oval-small")
+          .getElementById("#header_oval-big")
+          .classList.remove("rotating-fast");
+      document.getElementById("#header_oval-small") &&
+        document
+          .getElementById("#header_oval-small")
           .classList.remove("rotating-slow");
 
-      this.timeline.set("#circle", {
+      this.timeline.set("#header_circle", {
         scale: 0,
         z: 0.01,
       });
 
-      this.timeline.set("#oval-small", {
+      this.timeline.set("#header_oval-small", {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
       });
 
-      this.timeline.set("#oval-big", {
+      this.timeline.set("#header_oval-big", {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
       });
 
-      this.timeline.set("#logo-txt", {
+      this.timeline.set("#header_logo-txt", {
         autoAlpha: 0,
         z: 0.01,
       });
 
-      this.timeline.set("#main-navigation", {
+      this.timeline.set("#header_main-navigation", {
         autoAlpha: 0,
         z: 0.01,
       });
 
       this.timeline.fromTo(
-        "#circle",
+        "#header_circle",
         3,
         {
           scale: 0,
@@ -111,7 +106,7 @@ export default {
       );
 
       this.timeline.fromTo(
-        "#oval-small",
+        "#header_oval-small",
         2.5,
         {
           autoAlpha: 0,
@@ -129,7 +124,7 @@ export default {
       );
 
       this.timeline.fromTo(
-        "#oval-big",
+        "#header_oval-big",
         2.5,
         {
           autoAlpha: 0,
@@ -147,7 +142,7 @@ export default {
       );
 
       this.timeline.fromTo(
-        "#logo-txt",
+        "#header_logo-txt",
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -159,7 +154,7 @@ export default {
       );
 
       this.timeline.fromTo(
-        "#main-navigation",
+        "#header_main-navigation",
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -170,24 +165,15 @@ export default {
         "-=2.5"
       );
 
-      // if ($(".navigation .fade-component").length) {
-      //   this.timeline.fromTo(
-      //     $(".fade-component"),
-      //     2.5,
-      //     { autoAlpha: 0 },
-      //     {
-      //       autoAlpha: 1,
-      //       ease: Expo.easeOut,
-      //     },
-      //     "-=2.5"
-      //   );
-      // }
-
       setTimeout(function() {
-        document.getElementById("#oval-big") &&
-          document.getElementById("#oval-big").classList.add("rotating-fast");
-        document.getElementById("#oval-small") &&
-          document.getElementById("#oval-small").classList.add("rotating-slow");
+        document.getElementById("#header_oval-big") &&
+          document
+            .getElementById("#header_oval-big")
+            .classList.add("rotating-fast");
+        document.getElementById("#header_oval-small") &&
+          document
+            .getElementById("#header_oval-small")
+            .classList.add("rotating-slow");
       }, 2000);
     },
   },
@@ -206,7 +192,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // mixins - media query
 @mixin maxquery($width, $ratio: false) {
   @if $ratio {
