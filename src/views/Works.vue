@@ -108,9 +108,23 @@ export default {
     fetchData() {
       this.works = [
         {
+          title: "Boosteroid",
+          image: "/img/works/cloudboosteroid.jpg",
+          color: "#178ED3",
+          content: [
+            { key: "TYPE", value: "Product" },
+            { key: "STACK", value: "Classified" },
+            {
+              key: "LIVE",
+              value:
+                '<a href="https://cloud.boosteroid.com" target="_blank">VISIT</a>',
+            },
+          ],
+        },
+        {
           title: "SARS-COV-2 Statistics",
-          image: "/img/works/sars-cov-2-app.png",
-          color: "#027d2d",
+          image: "/img/works/sars-cov-2-app.jpg",
+          color: "#777777",
           content: [
             { key: "TYPE", value: "Website" },
             { key: "STACK", value: "Vue.js (Vue SLI 3)" },
