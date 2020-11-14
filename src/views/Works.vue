@@ -108,7 +108,7 @@ export default {
     fetchData() {
       this.works = [
         {
-          title: "Boosteroid",
+          title: "Cloud Boosteroid",
           image: "/img/works/cloudboosteroid.jpg",
           color: "#178ED3",
           content: [
@@ -141,7 +141,7 @@ export default {
           color: "#f2c849",
           content: [
             { key: "TYPE", value: "E-Commerce" },
-            { key: "STACK", value: "Delta CMS" },
+            { key: "STACK", value: "DeltaCMS" },
             {
               key: "LIVE",
               value: '<a href="https://samsonite.ua" target="_blank">VISIT</a>',
@@ -154,7 +154,7 @@ export default {
           color: "#9c9d9e",
           content: [
             { key: "TYPE", value: "Catalog" },
-            { key: "STACK", value: "Delta CMS" },
+            { key: "STACK", value: "DeltaCMS" },
             {
               key: "LIVE",
               value: '<a href="https://solente.ua" target="_blank">VISIT</a>',
@@ -167,7 +167,7 @@ export default {
           color: "#D22C22",
           content: [
             { key: "TYPE", value: "Portfolio" },
-            { key: "STACK", value: "Delta CMS" },
+            { key: "STACK", value: "DeltaCMS" },
             {
               key: "LIVE",
               value: '<a href="https://chulska.com" target="_blank">VISIT</a>',
@@ -175,7 +175,7 @@ export default {
           ],
         },
         {
-          title: "Delta CMS",
+          title: "DeltaCMS",
           image: "/img/works/delta.jpg",
           color: "#027d2d",
           content: [
@@ -183,12 +183,12 @@ export default {
             {
               key: "STACK",
               value:
-                "Laravel - Vue.js - SPA - Tailwind.css - ElementUI - Redis - PostgreSQL",
+                "Laravel - Vue.js (SPA) - Tailwind.css - ElementUI - Redis - MySQL",
             },
             {
               key: "LIVE",
               value:
-                '<a href="http://lara.deltacms.com.ua/auth/login" target="_blank">VISIT</a>',
+                '<a href="http://206.189.53.55/auth/login" target="_blank">VISIT</a>',
             },
           ],
         },
@@ -285,7 +285,7 @@ export default {
             { key: "TYPE", value: "Event" },
             {
               key: "STACK",
-              value: "Laravel - Bootstrap - Css3 - jQuery - Vue.js - Lodash",
+              value: "Laravel - Bootstrap - jQuery - Vue.js - Lodash",
             },
             {
               key: "LIVE",
@@ -300,7 +300,7 @@ export default {
           color: "#027d2d",
           content: [
             { key: "TYPE", value: "CRM" },
-            { key: "STACK", value: "Laravel - Css3 - jQuery - Vue.js" },
+            { key: "STACK", value: "Laravel - jQuery - Vue.js" },
             {
               key: "LIVE",
               value:
@@ -316,7 +316,7 @@ export default {
             { key: "TYPE", value: "Corporate" },
             {
               key: "STACK",
-              value: "Laravel - Css3 - jQuery - Vue.js - Moment.js - Polyfill",
+              value: "Laravel - jQuery - Vue.js - Moment.js - Polyfill",
             },
             {
               key: "LIVE",
@@ -359,7 +359,7 @@ export default {
           color: "#ED7102",
           content: [
             { key: "TYPE", value: "Portfolio" },
-            { key: "STACK", value: "Laravel - Css3 - jQuery" },
+            { key: "STACK", value: "Laravel - jQuery" },
             { key: "NO LIVE", value: "Sorry" },
           ],
         },
@@ -385,7 +385,7 @@ export default {
           color: "#f2c849",
           content: [
             { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel - Css3 - jQuery" },
+            { key: "STACK", value: "Laravel - jQuery" },
             { key: "NO LIVE", value: "Sorry" },
           ],
         },
@@ -409,7 +409,7 @@ export default {
           color: "#D22C22",
           content: [
             { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel - Css3 - jQuery" },
+            { key: "STACK", value: "Laravel - jQuery" },
             {
               key: "LIVE",
               value:
