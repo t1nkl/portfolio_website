@@ -56,7 +56,7 @@
               <h4>PHP/Laravel Developer</h4>
               <p>
                 Refinement, add new functionality, bug fixes and optimization
-                different websites.<br />Creation of websites.
+                different websites.<br/>Creation of websites.
               </p>
             </div>
           </li>
@@ -68,11 +68,11 @@
 
 <script>
 export default {
-  name: "Life",
+  name: 'Life',
   data: () => ({
     //
   }),
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -42,259 +42,259 @@
 </template>
 
 <script>
-import VueWordCloud from "vuewordcloud";
+import VueWordCloud from 'vuewordcloud'
 
 export default {
-  name: "Skills",
+  name: 'Skills',
   components: {
     [VueWordCloud.name]: VueWordCloud,
   },
   data: () => ({
     words: [],
     colorItems: [
-      "#ff3366",
-      "#ff6633",
-      "#FFCC33",
-      "#33FF66",
-      "#33FFCC",
-      "#33CCFF",
-      "#3366FF",
-      "#6633FF",
-      "#CC33FF",
+      '#ff3366',
+      '#ff6633',
+      '#FFCC33',
+      '#33FF66',
+      '#33FFCC',
+      '#33CCFF',
+      '#3366FF',
+      '#6633FF',
+      '#CC33FF',
     ],
     fontFamily: undefined,
-    fontFamilyValues: ["Finger Paint", "Fredericka the Great"],
+    fontFamilyValues: ['Finger Paint', 'Fredericka the Great'],
     rotationItemIndex: undefined,
     rotationItems: [
       {
         value: 0,
-        svg: (function() {
-          var svgNS = "http://www.w3.org/2000/svg";
-          var div = document.createElement("div");
+        svg: (function () {
+          var svgNS = 'http://www.w3.org/2000/svg'
+          var div = document.createElement('div')
 
           div.appendChild(
-            (function() {
-              var svg = document.createElementNS(svgNS, "svg");
-              svg.setAttribute("viewBox", "0 0 12 12");
+            (function () {
+              var svg = document.createElementNS(svgNS, 'svg')
+              svg.setAttribute('viewBox', '0 0 12 12')
 
               svg.appendChild(
-                (function() {
-                  var path = document.createElementNS(svgNS, "path");
-                  path.setAttribute("d", "M0 7 L0 5 L12 5 L12 7 Z");
+                (function () {
+                  var path = document.createElementNS(svgNS, 'path')
+                  path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
 
-                  return path;
-                })()
-              );
+                  return path
+                })(),
+              )
 
-              return svg;
-            })()
-          );
+              return svg
+            })(),
+          )
 
-          return URL.createObjectURL(new Blob([div.innerHTML]));
+          return URL.createObjectURL(new Blob([div.innerHTML]))
         })(),
       },
       {
-        value: function(word) {
+        value: function (word) {
           // eslint-disable-next-line
-          var chance = new Chance(word[0]); /* eslint-disable */
+          var chance = new Chance(word[0]) /* eslint-disable */
 
-          return chance.pickone([0, 3 / 4]); /* eslint-disable */
+          return chance.pickone([0, 3 / 4]) /* eslint-disable */
         },
-        svg: (function() {
-          var svgNS = "http://www.w3.org/2000/svg";
-          var div = document.createElement("div");
+        svg: (function () {
+          var svgNS = 'http://www.w3.org/2000/svg'
+          var div = document.createElement('div')
 
           div.appendChild(
-            (function() {
-              var svg = document.createElementNS(svgNS, "svg");
-              svg.setAttribute("viewBox", "0 0 12 12");
+            (function () {
+              var svg = document.createElementNS(svgNS, 'svg')
+              svg.setAttribute('viewBox', '0 0 12 12')
 
               svg.appendChild(
-                (function() {
-                  var path = document.createElementNS(svgNS, "path");
-                  path.setAttribute("d", "M0 7 L0 5 L12 5 L12 7 Z");
+                (function () {
+                  var path = document.createElementNS(svgNS, 'path')
+                  path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
 
-                  return path;
-                })()
-              );
+                  return path
+                })(),
+              )
 
               svg.appendChild(
-                (function() {
-                  var path = document.createElementNS(svgNS, "path");
-                  path.setAttribute("d", "M0 7 L0 5 L12 5 L12 7 Z");
-                  path.setAttribute("transform", "rotate(90 6 6)");
+                (function () {
+                  var path = document.createElementNS(svgNS, 'path')
+                  path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
+                  path.setAttribute('transform', 'rotate(90 6 6)')
 
-                  return path;
-                })()
-              );
+                  return path
+                })(),
+              )
 
-              return svg;
-            })()
-          );
+              return svg
+            })(),
+          )
 
-          return URL.createObjectURL(new Blob([div.innerHTML]));
+          return URL.createObjectURL(new Blob([div.innerHTML]))
         })(),
       },
       {
-        value: function(word) {
-          var chance = new Chance(word[0]); /* eslint-disable */
+        value: function (word) {
+          var chance = new Chance(word[0]) /* eslint-disable */
 
-          return chance.pickone([0, 1 / 8, 3 / 4, 7 / 8]); /* eslint-disable */
+          return chance.pickone([0, 1 / 8, 3 / 4, 7 / 8]) /* eslint-disable */
         },
-        svg: (function() {
-          var svgNS = "http://www.w3.org/2000/svg";
-          var div = document.createElement("div");
+        svg: (function () {
+          var svgNS = 'http://www.w3.org/2000/svg'
+          var div = document.createElement('div')
 
           div.appendChild(
-            (function() {
-              var svg = document.createElementNS(svgNS, "svg");
-              svg.setAttribute("viewBox", "0 0 12 12");
+            (function () {
+              var svg = document.createElementNS(svgNS, 'svg')
+              svg.setAttribute('viewBox', '0 0 12 12')
 
               svg.appendChild(
-                (function() {
-                  var path = document.createElementNS(svgNS, "path");
-                  path.setAttribute("d", "M0 7 L0 5 L12 5 L12 7 Z");
+                (function () {
+                  var path = document.createElementNS(svgNS, 'path')
+                  path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
 
-                  return path;
-                })()
-              );
-
-              svg.appendChild(
-                (function() {
-                  var path = document.createElementNS(svgNS, "path");
-                  path.setAttribute("d", "M0 7 L0 5 L12 5 L12 7 Z");
-                  path.setAttribute("transform", "rotate(45 6 6)");
-
-                  return path;
-                })()
-              );
+                  return path
+                })(),
+              )
 
               svg.appendChild(
-                (function() {
-                  var path = document.createElementNS(svgNS, "path");
-                  path.setAttribute("d", "M0 7 L0 5 L12 5 L12 7 Z");
-                  path.setAttribute("transform", "rotate(90 6 6)");
+                (function () {
+                  var path = document.createElementNS(svgNS, 'path')
+                  path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
+                  path.setAttribute('transform', 'rotate(45 6 6)')
 
-                  return path;
-                })()
-              );
+                  return path
+                })(),
+              )
 
               svg.appendChild(
-                (function() {
-                  var path = document.createElementNS(svgNS, "path");
-                  path.setAttribute("d", "M0 7 L0 5 L12 5 L12 7 Z");
-                  path.setAttribute("transform", "rotate(315 6 6)");
+                (function () {
+                  var path = document.createElementNS(svgNS, 'path')
+                  path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
+                  path.setAttribute('transform', 'rotate(90 6 6)')
 
-                  return path;
-                })()
-              );
+                  return path
+                })(),
+              )
 
-              return svg;
-            })()
-          );
+              svg.appendChild(
+                (function () {
+                  var path = document.createElementNS(svgNS, 'path')
+                  path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
+                  path.setAttribute('transform', 'rotate(315 6 6)')
 
-          return URL.createObjectURL(new Blob([div.innerHTML]));
+                  return path
+                })(),
+              )
+
+              return svg
+            })(),
+          )
+
+          return URL.createObjectURL(new Blob([div.innerHTML]))
         })(),
       },
     ],
   }),
   methods: {
-    fetchData() {
+    fetchData () {
       this.words = [
-        ["Laravel", 10],
-        ["Vue.js", 9],
-        ["PostgreSQL", 8],
-        ["Lumen", 7],
-        ["MySQL", 7],
-        ["PHP", 7],
-        ["Docker", 7],
-        ["Redis", 6],
-        ["Memcached", 6],
-        ["RabbitMQ", 6],
-        ["ElasticSearch", 5],
-        ["WebSockets", 5],
-        ["DigitalOcean", 5],
-        ["Kibana", 5],
-        ["Jenkins", 5],
-        ["Jira", 5],
-        ["RESTful API", 4],
-        ["Composer", 4],
-        ["Git", 4],
-        ["DRY", 4],
-        ["TDD", 4],
-        ["SPA", 4],
-        ["RPC", 4],
-        ["S.O.L.I.D.", 4],
-        ["React", 4],
-        ["Redux", 4],
-        ["Vuex", 4],
-        ["TailwindCSS", 3],
-        ["Axios", 3],
-        ["Ajax", 3],
-        ["Apache", 3],
-        ["nginx", 3],
-        ["haproxy", 3],
-        ["NetData", 3],
-        ["OOP", 3],
-        ["MVC", 3],
-        ["CORS", 3],
-        ["jQuery", 2],
-        ["JavaScript", 2],
-        ["CSS", 1],
-        ["Bootstrap", 1],
-        ["HTML", 1],
-      ];
+        ['Laravel', 10],
+        ['Vue.js', 9],
+        ['PostgreSQL', 8],
+        ['Lumen', 7],
+        ['MySQL', 7],
+        ['PHP', 7],
+        ['Docker', 7],
+        ['Redis', 6],
+        ['Memcached', 6],
+        ['RabbitMQ', 6],
+        ['ElasticSearch', 5],
+        ['WebSockets', 5],
+        ['DigitalOcean', 5],
+        ['Kibana', 5],
+        ['Jenkins', 5],
+        ['Jira', 5],
+        ['RESTful API', 4],
+        ['Composer', 4],
+        ['Git', 4],
+        ['DRY', 4],
+        ['TDD', 4],
+        ['SPA', 4],
+        ['RPC', 4],
+        ['S.O.L.I.D.', 4],
+        ['React', 4],
+        ['Redux', 4],
+        ['Vuex', 4],
+        ['TailwindCSS', 3],
+        ['Axios', 3],
+        ['Ajax', 3],
+        ['Apache', 3],
+        ['nginx', 3],
+        ['haproxy', 3],
+        ['NetData', 3],
+        ['OOP', 3],
+        ['MVC', 3],
+        ['CORS', 3],
+        ['jQuery', 2],
+        ['JavaScript', 2],
+        ['CSS', 1],
+        ['Bootstrap', 1],
+        ['HTML', 1],
+      ]
     },
   },
   computed: {
-    rotation: function() {
-      var item = this.rotationItems[this.rotationItemIndex];
+    rotation: function () {
+      var item = this.rotationItems[this.rotationItemIndex]
 
-      return item && item.value;
+      return item && item.value
     },
-    color: function() {
+    color: function () {
       return (word) => {
         switch (word[1]) {
           case 10:
-            return "#e74430";
+            return '#e74430'
           case 9:
-            return "#4fc08d";
+            return '#4fc08d'
           default:
             return this.colorItems[
               this.randomInteger(0, this.colorItems.length - 1)
-            ];
+              ]
         }
-      };
+      }
     },
   },
   watch: {
-    $route(to, from) {
-      this.fontFamily = undefined;
-      this.rotationItemIndex = undefined;
+    $route (to, from) {
+      this.fontFamily = undefined
+      this.rotationItemIndex = undefined
 
-      this.fetchData();
+      this.fetchData()
       this.fontFamily = chance.pickone(
-        this.fontFamilyValues
-      ); /* eslint-disable */
+        this.fontFamilyValues,
+      ) /* eslint-disable */
       this.rotationItemIndex = chance.integer({
         /* eslint-disable */
         min: 0,
         max: this.rotationItems.length - 1,
-      });
+      })
     },
   },
-  created: function() {
-    this.fetchData();
+  created: function () {
+    this.fetchData()
     this.fontFamily = chance.pickone(
-      this.fontFamilyValues
-    ); /* eslint-disable */
+      this.fontFamilyValues,
+    ) /* eslint-disable */
     this.rotationItemIndex = chance.integer({
       /* eslint-disable */
       min: 0,
       max: this.rotationItems.length - 1,
-    });
+    })
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -302,8 +302,8 @@ export default {
 @mixin maxquery($width, $ratio: false) {
   @if $ratio {
     @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
+    only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
       @content;
     }
   } @else {
@@ -396,7 +396,7 @@ export default {
               top: 50%;
               left: 50%;
               box-shadow: 0 0 36px rgba(0, 0, 0, 0.15),
-                0 0 36px rgba(0, 0, 0, 0.005);
+              0 0 36px rgba(0, 0, 0, 0.005);
               transition: all 0.45s cubic-bezier(1, 0.5, 0.8, 1);
 
               &.social-oval-big {
@@ -456,7 +456,8 @@ export default {
   }
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
   from {
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     -o-transform: translate(-50%, -50%) rotate(0deg);
@@ -494,7 +495,8 @@ export default {
   animation: rotating 12s linear infinite;
 }
 
-@-webkit-keyframes rotating-inverse /* Safari and Chrome */ {
+@-webkit-keyframes rotating-inverse /* Safari and Chrome */
+{
   from {
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     -o-transform: translate(-50%, -50%) rotate(0deg);

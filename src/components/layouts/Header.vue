@@ -1,28 +1,28 @@
 <template>
   <nav
-    class="navigation"
-    id="header_navigation"
     v-if="$route.name !== 'api.index_page'"
+    id="header_navigation"
+    class="navigation"
   >
-    <div class="logo" id="header_logo">
+    <div id="header_logo" class="logo">
       <router-link :to="'/'" exact>
         <img
+          id="header_logo-txt"
           alt="t1nkl - Web Developer - Logo"
           class="logo-txt"
           height="199"
-          id="header_logo-txt"
           src="../../assets/logo.png"
           width="380"
         />
         <div class="logo-bg-holder">
-          <div class="logo-bg oval-big" id="header_oval-big"></div>
-          <div class="logo-bg oval-small" id="header_oval-small"></div>
-          <div class="logo-bg circle" id="header_circle"></div>
+          <div id="header_oval-big" class="logo-bg oval-big"></div>
+          <div id="header_oval-small" class="logo-bg oval-small"></div>
+          <div id="header_circle" class="logo-bg circle"></div>
         </div>
       </router-link>
     </div>
 
-    <div class="main-navigation" id="header_main-navigation">
+    <div id="header_main-navigation" class="main-navigation">
       <ul>
         <li>
           <router-link :to="'/skills'" exact> skills<span>.</span></router-link>
@@ -42,107 +42,103 @@
 </template>
 
 <script>
-import { Back, Expo, gsap, TimelineMax } from "gsap";
-import { CSSPlugin } from "gsap/CSSPlugin";
+import { Back, Expo, gsap, TimelineMax } from 'gsap'
+import { CSSPlugin } from 'gsap/CSSPlugin'
 
-gsap.registerPlugin(CSSPlugin);
+gsap.registerPlugin(CSSPlugin)
 
 export default {
-  name: "Header",
+  name: 'Header',
   data: () => ({
     timeline: new TimelineMax(),
   }),
   methods: {
-    animateNavigation() {
-      document.getElementById("#header_oval-big") &&
-        document
-          .getElementById("#header_oval-big")
-          .classList.remove("rotating-fast");
-      document.getElementById("#header_oval-small") &&
-        document
-          .getElementById("#header_oval-small")
-          .classList.remove("rotating-slow");
+    animateNavigation () {
+      document.getElementById('#header_oval-big') &&
+      document.getElementById('#header_oval-big').classList.remove('rotating-fast')
+      document.getElementById('#header_oval-small') &&
+      document.getElementById('#header_oval-small').classList.remove('rotating-slow')
 
-      this.timeline.set("#header_circle", {
+      this.timeline.set('#header_circle', {
         scale: 0,
         z: 0.01,
-      });
+      })
 
-      this.timeline.set("#header_oval-small", {
+      this.timeline.set('#header_oval-small', {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
-      });
+      })
 
-      this.timeline.set("#header_oval-big", {
+      this.timeline.set('#header_oval-big', {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
-      });
+      })
 
-      this.timeline.set("#header_logo-txt", {
+      this.timeline.set('#header_logo-txt', {
         autoAlpha: 0,
         z: 0.01,
-      });
+      })
 
-      this.timeline.set("#header_main-navigation", {
+      this.timeline.set('#header_main-navigation', {
         autoAlpha: 0,
         z: 0.01,
-      });
+      })
 
       this.timeline.fromTo(
-        "#header_circle",
+        '#header_circle',
         3,
         {
           scale: 0,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
         },
         {
           force3D: true,
           scale: 1,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
           ease: Back.easeOut.config(2.25),
-        }
-      );
+        },
+      )
 
       this.timeline.fromTo(
-        "#header_oval-small",
+        '#header_oval-small',
         2.5,
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
         },
         {
           force3D: true,
           autoAlpha: 0.45,
           scale: 1,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
           ease: Back.easeOut.config(2.25),
         },
-        "-=2.25"
-      );
+        '-=2.25',
+      )
 
       this.timeline.fromTo(
-        "#header_oval-big",
+        '#header_oval-big',
         2.5,
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
         },
         {
           force3D: true,
           autoAlpha: 0.25,
           scale: 1,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
           ease: Back.easeOut.config(2.25),
         },
-        "-=2.25"
-      );
+        '-=2.25',
+      )
 
       this.timeline.fromTo(
-        "#header_logo-txt",
+        '#header_logo-txt',
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -150,11 +146,11 @@ export default {
           x: 0,
           ease: Expo.easeOut,
         },
-        "-=2.65"
-      );
+        '-=2.65',
+      )
 
       this.timeline.fromTo(
-        "#header_main-navigation",
+        '#header_main-navigation',
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -162,34 +158,30 @@ export default {
           x: 0,
           ease: Expo.easeOut,
         },
-        "-=2.5"
-      );
+        '-=2.5',
+      )
 
-      setTimeout(function() {
-        document.getElementById("#header_oval-big") &&
-          document
-            .getElementById("#header_oval-big")
-            .classList.add("rotating-fast");
-        document.getElementById("#header_oval-small") &&
-          document
-            .getElementById("#header_oval-small")
-            .classList.add("rotating-slow");
-      }, 2000);
+      setTimeout(function () {
+        document.getElementById('#header_oval-big') &&
+        document.getElementById('#header_oval-big').classList.add('rotating-fast')
+        document.getElementById('#header_oval-small') &&
+        document.getElementById('#header_oval-small').classList.add('rotating-slow')
+      }, 2000)
     },
   },
   watch: {
-    $route(to, from) {
-      if (from.name === "api.index_page") {
+    $route (to, from) {
+      if (from.name === 'api.index_page') {
         this.$nextTick().then(() => {
-          this.animateNavigation();
-        });
+          this.animateNavigation()
+        })
       }
     },
   },
-  mounted() {
-    this.animateNavigation();
+  mounted () {
+    this.animateNavigation()
   },
-};
+}
 </script>
 
 <style lang="scss">
@@ -197,8 +189,8 @@ export default {
 @mixin maxquery($width, $ratio: false) {
   @if $ratio {
     @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
+    only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
       @content;
     }
   } @else {
@@ -338,7 +330,8 @@ nav {
   }
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
   from {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -376,7 +369,8 @@ nav {
   animation: rotating 12s linear infinite;
 }
 
-@-webkit-keyframes rotating-inverse /* Safari and Chrome */ {
+@-webkit-keyframes rotating-inverse /* Safari and Chrome */
+{
   from {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);

@@ -1,11 +1,11 @@
 <template>
-  <div class="footer fade-component" v-if="$route.name !== 'api.index_page'">
+  <div v-if="$route.name !== 'api.index_page'" class="footer fade-component">
     <h2 class="divider"><span></span></h2>
     <div class="footer-inner">
       <div class="copyright">
         &copy; With &#9829; on Vue.js & GSAP by t1nkl /
         <a href="https://github.com/t1nkl/Portfolio-Website" target="_blank"
-          >GITHUB THIS</a
+        >GITHUB THIS</a
         >
       </div>
       <div class="extra">
@@ -37,11 +37,11 @@
 
 <script>
 export default {
-  name: "Footer",
+  name: 'Footer',
   data: () => ({
     //
   }),
-};
+}
 </script>
 
 <style lang="scss">

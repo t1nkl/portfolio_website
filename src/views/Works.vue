@@ -29,12 +29,12 @@
 
     <div class="works-holder fade-component">
       <div
-        :data-image="getColor()"
+        v-for="work in works"
         :key="work.title"
+        :data-image="getColor()"
+        class="work"
         @mouseenter="over($event)"
         @mouseleave="leave($event)"
-        class="work"
-        v-for="work in works"
       >
         <v-lazy-image
           :alt="'t1nkl - Web Developer - Works - ' + work.title"
@@ -60,9 +60,9 @@
 
         <div class="content">
           <h2>{{ work.title }}</h2>
-          <p :key="content.key" v-for="content in work.content">
+          <p v-for="content in work.content" :key="content.key">
             <strong>{{ content.key }}</strong>
-            <br />
+            <br/>
             <span style="font-size:20px" v-html="content.value"></span>
           </p>
         </div>
@@ -72,358 +72,387 @@
 </template>
 
 <script>
-import { TimelineMax } from "gsap";
+import { TimelineMax } from 'gsap'
 
 export default {
-  name: "Works",
+  name: 'Works',
   data: () => ({
     timeline: new TimelineMax({ paused: true }),
     works: [],
     colorItems: [
-      "#ff3366",
-      "#ff6633",
-      "#FFCC33",
-      "#33FF66",
-      "#33FFCC",
-      "#33CCFF",
-      "#3366FF",
-      "#6633FF",
-      "#CC33FF",
+      '#ff3366',
+      '#ff6633',
+      '#FFCC33',
+      '#33FF66',
+      '#33FFCC',
+      '#33CCFF',
+      '#3366FF',
+      '#6633FF',
+      '#CC33FF',
     ],
   }),
   methods: {
-    getColor() {
-      return this.colorItems[this.randomInteger(0, this.colorItems.length - 1)];
+    getColor () {
+      return this.colorItems[this.randomInteger(0, this.colorItems.length - 1)]
     },
-    over(event) {
-      let dataImage = event.target.dataset.image;
+    over (event) {
+      let dataImage = event.target.dataset.image
+
       document.getElementsByTagName(
-        "body"
-      )[0].style.backgroundColor = dataImage;
+        'body',
+      )[0].style.backgroundColor = dataImage
     },
-    leave() {
-      document.getElementsByTagName("body")[0].style.backgroundColor =
-        "#FFFFFF";
+    leave () {
+      document.getElementsByTagName('body')[0].style.backgroundColor =
+        '#FFFFFF'
     },
-    fetchData() {
+    fetchData () {
       this.works = [
         {
-          title: "Cloud Boosteroid",
-          image: "/img/works/cloudboosteroid.jpg",
-          color: "#178ED3",
+          title: 'Cloud Boosteroid',
+          image: '/img/works/cloudboosteroid.png',
+          color: '#ff3366',
           content: [
-            { key: "TYPE", value: "Product" },
-            { key: "STACK", value: "Classified" },
+            { key: 'TYPE', value: 'Product' },
+            { key: 'STACK', value: 'Classified' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="https://cloud.boosteroid.com" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "SARS-COV-2 Statistics",
-          image: "/img/works/sars-cov-2-app.jpg",
-          color: "#777777",
+          title: 'SARS-COV-2 Statistics',
+          image: '/img/works/sars-cov-2-app.jpg',
+          color: '#ff6633',
           content: [
-            { key: "TYPE", value: "Website" },
-            { key: "STACK", value: "Vue.js (Vue SLI 3)" },
+            { key: 'TYPE', value: 'Website' },
+            { key: 'STACK', value: 'Vue.js (Vue SLI 3)' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="https://sars-cov-2-app.web.app" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Samsonite",
-          image: "/img/works/samsonite.jpg",
-          color: "#f2c849",
+          title: 'FasterPay',
+          image: '/img/works/fasterpay.png',
+          color: '#FFCC33',
           content: [
-            { key: "TYPE", value: "E-Commerce" },
-            { key: "STACK", value: "DeltaCMS" },
+            { key: 'TYPE', value: 'Payment System' },
+            { key: 'STACK', value: 'Classified' },
             {
-              key: "LIVE",
+              key: 'LIVE',
+              value:
+                '<a href="https://www.fasterpay.com" target="_blank">VISIT</a>',
+            },
+          ],
+        },
+        {
+          title: 'Terminal3',
+          image: '/img/works/terminal3.png',
+          color: '#33FF66',
+          content: [
+            { key: 'TYPE', value: 'E-Commerce' },
+            { key: 'STACK', value: 'Classified' },
+            {
+              key: 'LIVE',
+              value:
+                '<a href="https://www.terminal3.com" target="_blank">VISIT</a>',
+            },
+          ],
+        },
+        {
+          title: 'Samsonite',
+          image: '/img/works/samsonite.jpg',
+          color: '#33FFCC',
+          content: [
+            { key: 'TYPE', value: 'E-Commerce' },
+            { key: 'STACK', value: 'DeltaCMS' },
+            {
+              key: 'LIVE',
               value: '<a href="https://samsonite.ua" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Solente",
-          image: "/img/works/solente.jpg",
-          color: "#9c9d9e",
+          title: 'Solente',
+          image: '/img/works/solente.jpg',
+          color: '#33CCFF',
           content: [
-            { key: "TYPE", value: "Catalog" },
-            { key: "STACK", value: "DeltaCMS" },
+            { key: 'TYPE', value: 'Catalog' },
+            { key: 'STACK', value: 'DeltaCMS' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value: '<a href="https://solente.ua" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Julia Chulska",
-          image: "/img/works/chulska.jpg",
-          color: "#D22C22",
+          title: 'Julia Chulska',
+          image: '/img/works/chulska.jpg',
+          color: '#3366FF',
           content: [
-            { key: "TYPE", value: "Portfolio" },
-            { key: "STACK", value: "DeltaCMS" },
+            { key: 'TYPE', value: 'Portfolio' },
+            { key: 'STACK', value: 'DeltaCMS' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value: '<a href="https://chulska.com" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "DeltaCMS",
-          image: "/img/works/delta.jpg",
-          color: "#027d2d",
+          title: 'DeltaCMS',
+          image: '/img/works/delta.jpg',
+          color: '#6633FF',
           content: [
-            { key: "TYPE", value: "CMS" },
+            { key: 'TYPE', value: 'CMS' },
             {
-              key: "STACK",
+              key: 'STACK',
               value:
-                "Laravel - Vue.js (SPA) - Tailwind.css - ElementUI - Redis - MySQL",
+                'Laravel - Vue.js (SPA) - Tailwind.css - ElementUI - Redis - PostgreSQL',
             },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="http://206.189.53.55/auth/login" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "UltraGroup",
-          image: "/img/works/ultragroup.jpg",
-          color: "#62bbc1",
+          title: 'UltraGroup',
+          image: '/img/works/ultragroup.jpg',
+          color: '#CC33FF',
           content: [
-            { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel" },
+            { key: 'TYPE', value: 'Corporate' },
+            { key: 'STACK', value: 'Laravel - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="https://ultragroup.com.ua" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Imperium Investments",
-          image: "/img/works/imperium.jpg",
-          color: "#178ED3",
+          title: 'Imperium Investments',
+          image: '/img/works/imperium.jpg',
+          color: '#178ED3',
           content: [
-            { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel" },
+            { key: 'TYPE', value: 'Corporate' },
+            { key: 'STACK', value: 'Laravel - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="http://imperiuminvestments.co.uk" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "L'Oreal",
-          image: "/img/works/loreal.jpg",
-          color: "#7ac3db",
+          title: 'L\'Oreal',
+          image: '/img/works/loreal.jpg',
+          color: '#7ac3db',
           content: [
-            { key: "TYPE", value: "Event" },
-            { key: "STACK", value: "Laravel - Vue.js" },
+            { key: 'TYPE', value: 'Event' },
+            { key: 'STACK', value: 'Laravel - Vue.js - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="http://loreal.cf.digital" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "CatChat",
-          image: "/img/works/catchat.jpg",
-          color: "#777777",
+          title: 'CatChat',
+          image: '/img/works/catchat.jpg',
+          color: '#777777',
           content: [
-            { key: "TYPE", value: "Goods" },
-            { key: "STACK", value: "Laravel" },
+            { key: 'TYPE', value: 'Goods' },
+            { key: 'STACK', value: 'Laravel - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value: '<a href="http://catchat.life" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Puzata Hata",
-          image: "/img/works/puzatahata.jpg",
-          color: "#ED7102",
+          title: 'Puzata Hata',
+          image: '/img/works/puzatahata.jpg',
+          color: '#ED7102',
           content: [
-            { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel" },
+            { key: 'TYPE', value: 'Corporate' },
+            { key: 'STACK', value: 'Laravel - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value: '<a href="http://puzatahata.ua" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "VESNAmedia",
-          image: "/img/works/vesnamedia.jpg",
-          color: "#D22C22",
+          title: 'VESNAmedia',
+          image: '/img/works/vesnamedia.jpg',
+          color: '#D22C22',
           content: [
-            { key: "TYPE", value: "News" },
+            { key: 'TYPE', value: 'News' },
             {
-              key: "STACK",
-              value: "Laravel - Bootstrap - jQuery - Slick - Modernizr",
+              key: 'STACK',
+              value: 'Laravel - Bootstrap - jQuery - Slick - Modernizr - MySQL',
             },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="https://www.vesnamedia.com" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Barometer",
-          image: "/img/works/barometer.jpg",
-          color: "#f2c849",
+          title: 'Barometer',
+          image: '/img/works/barometer.jpg',
+          color: '#f2c849',
           content: [
-            { key: "TYPE", value: "Event" },
+            { key: 'TYPE', value: 'Event' },
             {
-              key: "STACK",
-              value: "Laravel - Bootstrap - jQuery - Vue.js - Lodash",
+              key: 'STACK',
+              value: 'Laravel - Bootstrap - jQuery - Vue.js - Lodash - MySQL',
             },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="http://2017.barometer.show" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Harveast Portal",
-          image: "/img/works/harvest.jpg",
-          color: "#027d2d",
+          title: 'Harveast Portal',
+          image: '/img/works/harvest.jpg',
+          color: '#027d2d',
           content: [
-            { key: "TYPE", value: "CRM" },
-            { key: "STACK", value: "Laravel - jQuery - Vue.js" },
+            { key: 'TYPE', value: 'CRM' },
+            { key: 'STACK', value: 'Laravel - jQuery - Vue.js - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="http://portal.harveast.com.ua/login" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Skydiving Center",
-          image: "/img/works/skydiving.jpg",
-          color: "#9c9d9e",
+          title: 'Skydiving Center',
+          image: '/img/works/skydiving.jpg',
+          color: '#9c9d9e',
           content: [
-            { key: "TYPE", value: "Corporate" },
+            { key: 'TYPE', value: 'Corporate' },
             {
-              key: "STACK",
-              value: "Laravel - jQuery - Vue.js - Moment.js - Polyfill",
+              key: 'STACK',
+              value: 'Laravel - jQuery - Vue.js - Moment.js - Polyfill - MySQL',
             },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="http://skydiving.com.ua" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Anna-Ki",
-          image: "/img/works/annaki.jpg",
-          color: "#62bbc1",
+          title: 'Anna-Ki',
+          image: '/img/works/annaki.jpg',
+          color: '#62bbc1',
           content: [
-            { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel - Bootstrap - jQuery" },
+            { key: 'TYPE', value: 'Corporate' },
+            { key: 'STACK', value: 'Laravel - Bootstrap - jQuery - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value: '<a href="http://annaki.com.ua" target="_blank">VISIT</a>',
             },
           ],
         },
         {
           title:
-            "\u0416\u041a \u0421\u0432\u044f\u0442\u043e\u043f\u0435\u0442\u0440\u043e\u0432\u0441\u043a\u0438\u0439",
-          image: "/img/works/svyatopetrovskyi.jpg",
-          color: "#027d2d",
+            '\u0416\u041a \u0421\u0432\u044f\u0442\u043e\u043f\u0435\u0442\u0440\u043e\u0432\u0441\u043a\u0438\u0439',
+          image: '/img/works/svyatopetrovskyi.jpg',
+          color: '#027d2d',
           content: [
-            { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel - Bootstrap - jQuery" },
+            { key: 'TYPE', value: 'Corporate' },
+            { key: 'STACK', value: 'Laravel - Bootstrap - jQuery - MySQL' },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="http://www.sv-petrovskiy.kiev.ua" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Chaikivskyi",
-          image: "/img/works/chaikivskyi.jpg",
-          color: "#ED7102",
+          title: 'Chaikivskyi',
+          image: '/img/works/chaikivskyi.jpg',
+          color: '#ED7102',
           content: [
-            { key: "TYPE", value: "Portfolio" },
-            { key: "STACK", value: "Laravel - jQuery" },
-            { key: "NO LIVE", value: "Sorry" },
+            { key: 'TYPE', value: 'Portfolio' },
+            { key: 'STACK', value: 'Laravel - jQuery - MySQL' },
+            { key: 'NO LIVE', value: 'Sorry' },
           ],
         },
         {
-          title: "As Breus",
-          image: "/img/works/asbreus.jpg",
-          color: "#178ED3",
+          title: 'As Breus',
+          image: '/img/works/asbreus.jpg',
+          color: '#178ED3',
           content: [
-            { key: "TYPE", value: "Portfolio" },
+            { key: 'TYPE', value: 'Portfolio' },
             {
-              key: "STACK",
-              value: "Laravel - Bootstrap - jQuery - FancyBox - OWL Carousel",
+              key: 'STACK',
+              value: 'Laravel - Bootstrap - jQuery - FancyBox - OWL Carousel - MySQL',
             },
             {
-              key: "LIVE",
+              key: 'LIVE',
               value: '<a href="http://as-breus.com" target="_blank">VISIT</a>',
             },
           ],
         },
         {
-          title: "Impire Tattoo",
-          image: "/img/works/imperiatatu.jpg",
-          color: "#f2c849",
+          title: 'Impire Tattoo',
+          image: '/img/works/imperiatatu.jpg',
+          color: '#f2c849',
           content: [
-            { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel - jQuery" },
-            { key: "NO LIVE", value: "Sorry" },
+            { key: 'TYPE', value: 'Corporate' },
+            { key: 'STACK', value: 'Laravel - jQuery - MySQL' },
+            { key: 'NO LIVE', value: 'Sorry' },
           ],
         },
         {
-          title: "Matrasik",
-          image: "/img/works/matrasik.jpg",
-          color: "#777777",
+          title: 'LeoDigital',
+          image: '/img/works/leodigital.jpg',
+          color: '#D22C22',
           content: [
-            { key: "TYPE", value: "E-Commerce" },
-            { key: "STACK", value: "WordPress" },
+            { key: 'TYPE', value: 'Corporate' },
+            { key: 'STACK', value: 'Laravel - jQuery - MySQL' },
             {
-              key: "LIVE",
-              value:
-                '<a href="https://matrasik.kiev.ua" target="_blank">VISIT</a>',
-            },
-          ],
-        },
-        {
-          title: "LeoDigital",
-          image: "/img/works/leodigital.jpg",
-          color: "#D22C22",
-          content: [
-            { key: "TYPE", value: "Corporate" },
-            { key: "STACK", value: "Laravel - jQuery" },
-            {
-              key: "LIVE",
+              key: 'LIVE',
               value:
                 '<a href="https://leodigital.com.ua" target="_blank">VISIT</a>',
             },
           ],
         },
-      ];
+        {
+          title: 'Matrasik',
+          image: '/img/works/matrasik.jpg',
+          color: '#777777',
+          content: [
+            { key: 'TYPE', value: 'E-Commerce' },
+            { key: 'STACK', value: 'WordPress' },
+            {
+              key: 'LIVE',
+              value:
+                '<a href="https://matrasik.kiev.ua" target="_blank">VISIT</a>',
+            },
+          ],
+        },
+      ]
     },
   },
-  created: function() {
-    this.fetchData();
+  created: function () {
+    this.fetchData()
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -442,8 +471,8 @@ export default {
 @mixin maxquery($width, $ratio: false) {
   @if $ratio {
     @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
+    only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
       @content;
     }
   } @else {
@@ -648,7 +677,8 @@ export default {
   }
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
   from {
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     -o-transform: translate(-50%, -50%) rotate(0deg);
@@ -686,7 +716,8 @@ export default {
   animation: rotating 12s linear infinite;
 }
 
-@-webkit-keyframes rotating-inverse /* Safari and Chrome */ {
+@-webkit-keyframes rotating-inverse /* Safari and Chrome */
+{
   from {
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     -o-transform: translate(-50%, -50%) rotate(0deg);

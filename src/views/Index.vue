@@ -1,21 +1,21 @@
 <template>
   <div class="home-holder">
-    <div class="logo" id="index_logo">
+    <div id="index_logo" class="logo">
       <img
+        id="index_logo-txt"
         alt="t1nkl - Web Developer - Logo"
         class="logo-txt"
-        id="index_logo-txt"
         src="../assets/logo.png"
         width="300"
       />
-      <div class="logo-bg-holder" id="index_logo-bg-holder">
-        <div class="logo-bg oval-big" id="index_oval-big"></div>
-        <div class="logo-bg oval-small" id="index_oval-small"></div>
-        <div class="logo-bg circle" id="index_circle"></div>
+      <div id="index_logo-bg-holder" class="logo-bg-holder">
+        <div id="index_oval-big" class="logo-bg oval-big"></div>
+        <div id="index_oval-small" class="logo-bg oval-small"></div>
+        <div id="index_circle" class="logo-bg circle"></div>
       </div>
     </div>
 
-    <div class="custom-navigation" id="index_custom-navigation">
+    <div id="index_custom-navigation" class="custom-navigation">
       <ul>
         <li>
           <router-link :to="'/skills'" exact> skills<span>.</span></router-link>
@@ -35,92 +35,92 @@
 </template>
 
 <script>
-import { Back, Expo, gsap, TimelineMax } from "gsap";
-import { CSSPlugin } from "gsap/CSSPlugin";
+import { Back, Expo, gsap, TimelineMax } from 'gsap'
+import { CSSPlugin } from 'gsap/CSSPlugin'
 
-gsap.registerPlugin(CSSPlugin);
+gsap.registerPlugin(CSSPlugin)
 
 export default {
-  name: "Index",
+  name: 'Index',
   data: () => ({
     timeline: new TimelineMax(),
   }),
   methods: {
-    animateLogo() {
-      this.timeline.set("#index_circle", {
+    animateLogo () {
+      this.timeline.set('#index_circle', {
         scale: 0,
         z: 0.01,
-      });
+      })
 
-      this.timeline.set("#index_oval-small", {
-        autoAlpha: 0,
-        scale: 0,
-        z: 0.01,
-      });
-
-      this.timeline.set("#index_oval-big", {
+      this.timeline.set('#index_oval-small', {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
-      });
+      })
 
-      this.timeline.set("#index_logo-txt", {
+      this.timeline.set('#index_oval-big', {
+        autoAlpha: 0,
+        scale: 0,
+        z: 0.01,
+      })
+
+      this.timeline.set('#index_logo-txt', {
         autoAlpha: 0,
         z: 0.01,
-      });
+      })
 
-      this.timeline.set("#index_custom-navigation", {
+      this.timeline.set('#index_custom-navigation', {
         autoAlpha: 0,
         z: 0.01,
-      });
+      })
 
       this.timeline.fromTo(
-        "#index_circle",
+        '#index_circle',
         3,
-        { scale: 0, transformOrigin: "50% 50%" },
+        { scale: 0, transformOrigin: '50% 50%' },
         {
           force3D: true,
           scale: 1,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
           ease: Back.easeOut.config(2.25),
-        }
-      );
+        },
+      )
 
       this.timeline.fromTo(
-        "#index_oval-small",
+        '#index_oval-small',
         2.5,
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
         },
         {
           force3D: true,
           autoAlpha: 1,
           scale: 1,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
           ease: Back.easeOut.config(2.25),
         },
-        "-=2.25"
-      );
+        '-=2.25',
+      )
 
       this.timeline.fromTo(
-        "#index_oval-big",
+        '#index_oval-big',
         2.5,
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
         },
         {
           force3D: true,
           autoAlpha: 1,
           scale: 1,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
           ease: Back.easeOut.config(2.25),
         },
-        "-=2.25"
-      );
+        '-=2.25',
+      )
 
       // this.timeline.to(
       //   "#index_oval-big",
@@ -140,7 +140,7 @@ export default {
       // );
 
       this.timeline.fromTo(
-        "#index_logo-txt",
+        '#index_logo-txt',
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -148,11 +148,11 @@ export default {
           x: 0,
           ease: Expo.easeOut,
         },
-        "-=2.65"
-      );
+        '-=2.65',
+      )
 
       this.timeline.fromTo(
-        "#index_custom-navigation",
+        '#index_custom-navigation',
         2.5,
         { autoAlpha: 0, x: -80 },
         {
@@ -160,14 +160,14 @@ export default {
           x: 0,
           ease: Expo.easeOut,
         },
-        "-=2.45"
-      );
+        '-=2.45',
+      )
     },
   },
-  mounted() {
-    this.animateLogo();
+  mounted () {
+    this.animateLogo()
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -175,8 +175,8 @@ export default {
 @mixin maxquery($width, $ratio: false) {
   @if $ratio {
     @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
+    only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
       @content;
     }
   } @else {
@@ -325,7 +325,8 @@ export default {
   }
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
   from {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -363,7 +364,8 @@ export default {
   animation: rotating 12s linear infinite;
 }
 
-@-webkit-keyframes rotating-inverse /* Safari and Chrome */ {
+@-webkit-keyframes rotating-inverse /* Safari and Chrome */
+{
   from {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);

@@ -5,11 +5,11 @@
 
       <div class="content">
         <p>Some cool text will be here in future...</p>
-        <br />
+        <br/>
         <p>
           In the meantime, you can see my
           <a href="/storage/cv/Kyryll_Kovalenko_CV.pdf" target="_blank"
-            ><b>CV</b></a
+          ><b>CV</b></a
           >
         </p>
       </div>
@@ -50,11 +50,11 @@
 
 <script>
 export default {
-  name: "Contact",
+  name: 'Contact',
   data: () => ({
     //
   }),
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -62,8 +62,8 @@ export default {
 @mixin maxquery($width, $ratio: false) {
   @if $ratio {
     @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
+    only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
       @content;
     }
   } @else {
@@ -153,7 +153,7 @@ export default {
               top: 50%;
               left: 50%;
               box-shadow: 0 0 36px rgba(0, 0, 0, 0.15),
-                0 0 36px rgba(0, 0, 0, 0.005);
+              0 0 36px rgba(0, 0, 0, 0.005);
               transition: all 0.45s cubic-bezier(1, 0.5, 0.8, 1);
 
               &.social-oval-big {
@@ -213,7 +213,8 @@ export default {
   }
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
   from {
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     -o-transform: translate(-50%, -50%) rotate(0deg);
@@ -251,7 +252,8 @@ export default {
   animation: rotating 12s linear infinite;
 }
 
-@-webkit-keyframes rotating-inverse /* Safari and Chrome */ {
+@-webkit-keyframes rotating-inverse /* Safari and Chrome */
+{
   from {
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     -o-transform: translate(-50%, -50%) rotate(0deg);
