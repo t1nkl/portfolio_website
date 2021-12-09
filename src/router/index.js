@@ -17,8 +17,8 @@ const routes = [
         name: 'api.index_page',
         component: Index,
         meta: {
-          title: 'Index',
-        },
+          title: 'Index'
+        }
       },
       {
         path: '/skills',
@@ -26,8 +26,8 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "skills" */ '../views/Skills.vue'),
         meta: {
-          title: 'Skills',
-        },
+          title: 'Skills'
+        }
       },
       {
         path: '/works',
@@ -35,8 +35,8 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "works" */ '../views/Works.vue'),
         meta: {
-          title: 'Works',
-        },
+          title: 'Works'
+        }
       },
       {
         path: '/life',
@@ -44,8 +44,8 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "life" */ '../views/Life.vue'),
         meta: {
-          title: 'Life',
-        },
+          title: 'Life'
+        }
       },
       {
         path: '/contact',
@@ -53,24 +53,24 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "contact" */ '../views/Contact.vue'),
         meta: {
-          title: 'Contact',
-        },
+          title: 'Contact'
+        }
       },
       {
         path: '*',
         name: 'api.404_page',
         component: ErrorView,
         meta: {
-          title: '404',
-        },
-      },
-    ],
-  },
+          title: '404'
+        }
+      }
+    ]
+  }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  routes,
+  routes
 })
 
 export default router

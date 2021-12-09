@@ -5,9 +5,9 @@
 
 
 This website based on:
-  - [Vue.js](https://vuejs.org/)
-  - [Vue CLI](https://cli.vuejs.org/)
-  - [GSAP](https://greensock.com/gsap/)
+- [Vue.js](https://vuejs.org/)
+- [Vue CLI](https://cli.vuejs.org/)
+- [GSAP](https://greensock.com/gsap/)
 
 
 ### Link  -  [Website](https://t1nkl.dev/)

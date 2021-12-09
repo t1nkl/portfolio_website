@@ -7,13 +7,23 @@
 
       <div class="content">
         <ul class="timeline">
+<!--          TODO: In the future-->
+<!--          <li class="timeline-event">-->
+<!--            <label class="timeline-event-icon"></label>-->
+<!--            <div class="timeline-event-copy">-->
+<!--              <p class="timeline-event-thumbnail">November 2021</p>-->
+<!--              <h3>Svitla Systems Inc.</h3>-->
+<!--              <h4>Laravel Developer</h4>-->
+<!--              <p>In the process...</p>-->
+<!--            </div>-->
+<!--          </li>-->
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">January 2020</p>
-              <h3>Boosteroid</h3>
+              <h3>Boosteroid Cloud Gaming</h3>
               <h4>Laravel Developer</h4>
-              <p>In the process.</p>
+              <p>Creating a high-load platform from scratch.</p>
             </div>
           </li>
           <li class="timeline-event">
@@ -33,7 +43,7 @@
               </p>
               <h3>CF.Digital</h3>
               <h4>Laravel Developer (Full Stack)</h4>
-              <p>Creation of websites, e-commerce, CMS.</p>
+              <p>Creating different websites, e-commerce, CMS from scratch.</p>
             </div>
           </li>
           <li class="timeline-event">
@@ -43,8 +53,8 @@
               <h3>Intraweb Agency</h3>
               <h4>Laravel Developer (Full Stack)</h4>
               <p>
-                Refinement, add new functionality and optimization of
-                international platform.
+                Add new functionality and optimization of
+                international study platform.
               </p>
             </div>
           </li>
@@ -53,10 +63,10 @@
             <div class="timeline-event-copy">
               <p class="timeline-event-thumbnail">March 2016</p>
               <h3>LeoDigital</h3>
-              <h4>PHP/Laravel Developer</h4>
+              <h4>PHP / Laravel Developer</h4>
               <p>
                 Refinement, add new functionality, bug fixes and optimization
-                different websites.<br/>Creation of websites.
+                different websites based on different PHP systems.<br/>Creating different websites from scratch.
               </p>
             </div>
           </li>
@@ -71,7 +81,7 @@ export default {
   name: 'Life',
   data: () => ({
     //
-  }),
+  })
 }
 </script>
 
@@ -81,7 +91,7 @@ ul {
 }
 
 .timeline {
-  margin: 4em auto;
+  margin: 3.5em auto;
   position: relative;
   max-width: 46em;
 }
@@ -122,7 +132,7 @@ ul {
   padding-left: 0.1em;
   position: relative;
   top: -1.875em;
-  left: 4em;
+  left: 3.5em;
   width: 80%;
 }
 

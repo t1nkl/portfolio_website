@@ -50,7 +50,7 @@ gsap.registerPlugin(CSSPlugin)
 export default {
   name: 'Header',
   data: () => ({
-    timeline: new TimelineMax(),
+    timeline: new TimelineMax()
   }),
   methods: {
     animateNavigation () {
@@ -61,29 +61,29 @@ export default {
 
       this.timeline.set('#header_circle', {
         scale: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#header_oval-small', {
         autoAlpha: 0,
         scale: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#header_oval-big', {
         autoAlpha: 0,
         scale: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#header_logo-txt', {
         autoAlpha: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#header_main-navigation', {
         autoAlpha: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.fromTo(
@@ -91,14 +91,14 @@ export default {
         3,
         {
           scale: 0,
-          transformOrigin: '50% 50%',
+          transformOrigin: '50% 50%'
         },
         {
           force3D: true,
           scale: 1,
           transformOrigin: '50% 50%',
-          ease: Back.easeOut.config(2.25),
-        },
+          ease: Back.easeOut.config(2.25)
+        }
       )
 
       this.timeline.fromTo(
@@ -107,16 +107,16 @@ export default {
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: '50% 50%',
+          transformOrigin: '50% 50%'
         },
         {
           force3D: true,
           autoAlpha: 0.45,
           scale: 1,
           transformOrigin: '50% 50%',
-          ease: Back.easeOut.config(2.25),
+          ease: Back.easeOut.config(2.25)
         },
-        '-=2.25',
+        '-=2.25'
       )
 
       this.timeline.fromTo(
@@ -125,16 +125,16 @@ export default {
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: '50% 50%',
+          transformOrigin: '50% 50%'
         },
         {
           force3D: true,
           autoAlpha: 0.25,
           scale: 1,
           transformOrigin: '50% 50%',
-          ease: Back.easeOut.config(2.25),
+          ease: Back.easeOut.config(2.25)
         },
-        '-=2.25',
+        '-=2.25'
       )
 
       this.timeline.fromTo(
@@ -144,9 +144,9 @@ export default {
         {
           autoAlpha: 1,
           x: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeOut
         },
-        '-=2.65',
+        '-=2.65'
       )
 
       this.timeline.fromTo(
@@ -156,9 +156,9 @@ export default {
         {
           autoAlpha: 1,
           x: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeOut
         },
-        '-=2.5',
+        '-=2.5'
       )
 
       setTimeout(function () {
@@ -167,7 +167,7 @@ export default {
         document.getElementById('#header_oval-small') &&
         document.getElementById('#header_oval-small').classList.add('rotating-slow')
       }, 2000)
-    },
+    }
   },
   watch: {
     $route (to, from) {
@@ -176,11 +176,11 @@ export default {
           this.animateNavigation()
         })
       }
-    },
+    }
   },
   mounted () {
     this.animateNavigation()
-  },
+  }
 }
 </script>
 

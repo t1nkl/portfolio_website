@@ -8,7 +8,7 @@
         <br/>
         <p>
           In the meantime, you can see my
-          <a href="/storage/cv/Kyryll_Kovalenko_CV.pdf" target="_blank"
+          <a href="/static/cv/Kyryll_Kovalenko_CV.pdf" target="_blank"
           ><b>CV</b></a
           >
         </p>
@@ -53,7 +53,7 @@ export default {
   name: 'Contact',
   data: () => ({
     //
-  }),
+  })
 }
 </script>
 

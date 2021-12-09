@@ -18,11 +18,11 @@ export default {
   name: 'Elementor',
   components: {
     'header-layout': headerLayout,
-    'footer-layout': footerLayout,
+    'footer-layout': footerLayout
   },
   data: () => ({
     //
-  }),
+  })
 }
 </script>
 

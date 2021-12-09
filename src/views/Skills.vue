@@ -47,7 +47,7 @@ import VueWordCloud from 'vuewordcloud'
 export default {
   name: 'Skills',
   components: {
-    [VueWordCloud.name]: VueWordCloud,
+    [VueWordCloud.name]: VueWordCloud
   },
   data: () => ({
     words: [],
@@ -60,7 +60,7 @@ export default {
       '#33CCFF',
       '#3366FF',
       '#6633FF',
-      '#CC33FF',
+      '#CC33FF'
     ],
     fontFamily: undefined,
     fontFamilyValues: ['Finger Paint', 'Fredericka the Great'],
@@ -83,15 +83,15 @@ export default {
                   path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
 
                   return path
-                })(),
+                })()
               )
 
               return svg
-            })(),
+            })()
           )
 
           return URL.createObjectURL(new Blob([div.innerHTML]))
-        })(),
+        })()
       },
       {
         value: function (word) {

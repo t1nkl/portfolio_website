@@ -5,6 +5,6 @@ export default {
       rand = Math.round(rand)
 
       return rand
-    },
-  },
+    }
+  }
 }

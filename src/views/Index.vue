@@ -43,35 +43,35 @@ gsap.registerPlugin(CSSPlugin)
 export default {
   name: 'Index',
   data: () => ({
-    timeline: new TimelineMax(),
+    timeline: new TimelineMax()
   }),
   methods: {
     animateLogo () {
       this.timeline.set('#index_circle', {
         scale: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#index_oval-small', {
         autoAlpha: 0,
         scale: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#index_oval-big', {
         autoAlpha: 0,
         scale: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#index_logo-txt', {
         autoAlpha: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.set('#index_custom-navigation', {
         autoAlpha: 0,
-        z: 0.01,
+        z: 0.01
       })
 
       this.timeline.fromTo(
@@ -82,8 +82,8 @@ export default {
           force3D: true,
           scale: 1,
           transformOrigin: '50% 50%',
-          ease: Back.easeOut.config(2.25),
-        },
+          ease: Back.easeOut.config(2.25)
+        }
       )
 
       this.timeline.fromTo(
@@ -92,16 +92,16 @@ export default {
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: '50% 50%',
+          transformOrigin: '50% 50%'
         },
         {
           force3D: true,
           autoAlpha: 1,
           scale: 1,
           transformOrigin: '50% 50%',
-          ease: Back.easeOut.config(2.25),
+          ease: Back.easeOut.config(2.25)
         },
-        '-=2.25',
+        '-=2.25'
       )
 
       this.timeline.fromTo(
@@ -110,16 +110,16 @@ export default {
         {
           autoAlpha: 0,
           scale: 0,
-          transformOrigin: '50% 50%',
+          transformOrigin: '50% 50%'
         },
         {
           force3D: true,
           autoAlpha: 1,
           scale: 1,
           transformOrigin: '50% 50%',
-          ease: Back.easeOut.config(2.25),
+          ease: Back.easeOut.config(2.25)
         },
-        '-=2.25',
+        '-=2.25'
       )
 
       // this.timeline.to(
@@ -146,9 +146,9 @@ export default {
         {
           autoAlpha: 1,
           x: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeOut
         },
-        '-=2.65',
+        '-=2.65'
       )
 
       this.timeline.fromTo(
@@ -158,15 +158,15 @@ export default {
         {
           autoAlpha: 1,
           x: 0,
-          ease: Expo.easeOut,
+          ease: Expo.easeOut
         },
-        '-=2.45',
+        '-=2.45'
       )
-    },
+    }
   },
   mounted () {
     this.animateLogo()
-  },
+  }
 }
 </script>
 
