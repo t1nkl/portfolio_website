@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "chance": "^1.1.8",
+    "fast-average-color": "^7.0.1",
     "gsap": "^3.8.0",
+    "save": "^2.4.0",
     "v-lazy-image": "^2.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

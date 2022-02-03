@@ -31,7 +31,7 @@
       <div
         v-for="work in works"
         :key="work.title"
-        :data-image="getColor()"
+        :data-image="work.image"
         class="work"
         @mouseenter="over($event)"
         @mouseleave="leave($event)"
@@ -74,6 +74,7 @@
 <script>
 import VLazyImage from 'v-lazy-image/v2/v-lazy-image.es.js'
 import { TimelineMax } from 'gsap'
+import FastAverageColor from 'fast-average-color'
 
 export default {
   components: {
@@ -96,13 +97,17 @@ export default {
     ]
   }),
   methods: {
-    getColor () {
+    getRandomColor () {
       return this.colorItems[this.randomInteger(0, this.colorItems.length - 1)]
     },
     over (event) {
-      document.getElementsByTagName(
-        'body'
-      )[0].style.backgroundColor = event.target.dataset.image
+      new FastAverageColor().getColorAsync(event.target.dataset.image)
+        .then(color => {
+          document.getElementsByTagName('body')[0].style.backgroundColor = color.hex
+        })
+        .catch(e => {
+          document.getElementsByTagName('body')[0].style.backgroundColor = this.getRandomColor()
+        })
     },
     leave () {
       document.getElementsByTagName('body')[0].style.backgroundColor =
@@ -111,12 +116,32 @@ export default {
     fetchData () {
       this.works = [
         {
-          title: 'Boosteroid Service',
-          image: '/static/img/works/cloudboosteroid.png',
-          color: '#ff3366',
+          title: 'Classified',
+          image: '/static/img/works/svitla-classified-1.png',
+          content: [
+            { key: 'TYPE', value: 'Classified' },
+            { key: 'STACK', value: 'Classified' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://svitla.com" target="_blank">Svitla Systems Inc.</a>'
+            },
+            {
+              key: 'LIVE',
+              value:
+                '<a href="/works">Classified</a>'
+            }
+          ]
+        },
+        {
+          title: 'Boosteroid Cloud',
+          image: '/static/img/works/boosteroid-cloud.png',
           content: [
             { key: 'TYPE', value: 'Product' },
             { key: 'STACK', value: 'Classified' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://boosteroid.com" target="_blank">Boosteroid Games S.R.L.</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -125,12 +150,29 @@ export default {
           ]
         },
         {
+          title: 'Boosteroid Partners',
+          image: '/static/img/works/boosteroid-partners.png',
+          content: [
+            { key: 'TYPE', value: 'Product' },
+            { key: 'STACK', value: 'Classified' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://boosteroid.com" target="_blank">Boosteroid Games S.R.L.</a>'
+            },
+            {
+              key: 'LIVE',
+              value:
+                '<a href="https://boosteroid.partners" target="_blank">VISIT</a>'
+            }
+          ]
+        },
+        {
           title: 'SARS-COV-2 Statistics',
           image: '/static/img/works/sars-cov-2-app.jpg',
-          color: '#ff6633',
           content: [
             { key: 'TYPE', value: 'Website' },
             { key: 'STACK', value: 'Vue.js (Vue SLI)' },
+            { key: 'COMPANY', value: 'Personal' },
             {
               key: 'LIVE',
               value:
@@ -141,10 +183,13 @@ export default {
         {
           title: 'FasterPay',
           image: '/static/img/works/fasterpay.png',
-          color: '#FFCC33',
           content: [
-            { key: 'TYPE', value: 'Payment System' },
+            { key: 'TYPE', value: 'Enterprise Payment System' },
             { key: 'STACK', value: 'Classified' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://www.paymentwall.com" target="_blank">PaymentWall Inc.</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -153,12 +198,15 @@ export default {
           ]
         },
         {
-          title: 'Terminal3',
+          title: 'Terminal 3',
           image: '/static/img/works/terminal3.png',
-          color: '#33FF66',
           content: [
-            { key: 'TYPE', value: 'E-Commerce' },
+            { key: 'TYPE', value: 'Enterprise E-Commerce' },
             { key: 'STACK', value: 'Classified' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://www.paymentwall.com" target="_blank">PaymentWall Inc.</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -169,10 +217,13 @@ export default {
         {
           title: 'Samsonite',
           image: '/static/img/works/samsonite.jpg',
-          color: '#33FFCC',
           content: [
             { key: 'TYPE', value: 'E-Commerce' },
             { key: 'STACK', value: 'DeltaCMS' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value: '<a href="https://samsonite.ua" target="_blank">VISIT</a>'
@@ -182,10 +233,13 @@ export default {
         {
           title: 'Solente',
           image: '/static/img/works/solente.jpg',
-          color: '#33CCFF',
           content: [
             { key: 'TYPE', value: 'Catalog' },
             { key: 'STACK', value: 'DeltaCMS' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value: '<a href="https://solente.ua" target="_blank">VISIT</a>'
@@ -195,10 +249,13 @@ export default {
         {
           title: 'Julia Chulska',
           image: '/static/img/works/chulska.jpg',
-          color: '#3366FF',
           content: [
             { key: 'TYPE', value: 'Portfolio' },
             { key: 'STACK', value: 'DeltaCMS' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value: '<a href="https://chulska.com" target="_blank">VISIT</a>'
@@ -208,13 +265,16 @@ export default {
         {
           title: 'DeltaCMS',
           image: '/static/img/works/delta.jpg',
-          color: '#6633FF',
           content: [
             { key: 'TYPE', value: 'CMS' },
             {
               key: 'STACK',
               value:
                 'Laravel - Vue.js (SPA) - Tailwind.css - ElementUI - Redis - PostgreSQL'
+            },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
             },
             {
               key: 'LIVE',
@@ -226,10 +286,13 @@ export default {
         {
           title: 'UltraGroup',
           image: '/static/img/works/ultragroup.jpg',
-          color: '#CC33FF',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             { key: 'STACK', value: 'Laravel - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -240,10 +303,13 @@ export default {
         {
           title: 'Imperium Investments',
           image: '/static/img/works/imperium.jpg',
-          color: '#178ED3',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             { key: 'STACK', value: 'Laravel - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -254,10 +320,13 @@ export default {
         {
           title: 'L\'Oreal',
           image: '/static/img/works/loreal.jpg',
-          color: '#7ac3db',
           content: [
             { key: 'TYPE', value: 'Event' },
             { key: 'STACK', value: 'Laravel - Vue.js - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -268,10 +337,13 @@ export default {
         {
           title: 'CatChat',
           image: '/static/img/works/catchat.jpg',
-          color: '#777777',
           content: [
             { key: 'TYPE', value: 'Goods' },
             { key: 'STACK', value: 'Laravel - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value: '<a href="http://catchat.life" target="_blank">VISIT</a>'
@@ -281,10 +353,13 @@ export default {
         {
           title: 'Puzata Hata',
           image: '/static/img/works/puzatahata.jpg',
-          color: '#ED7102',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             { key: 'STACK', value: 'Laravel - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://cf.digital" target="_blank">CF digital agency</a>'
+            },
             {
               key: 'LIVE',
               value: '<a href="http://puzatahata.ua" target="_blank">VISIT</a>'
@@ -294,12 +369,15 @@ export default {
         {
           title: 'VESNAmedia',
           image: '/static/img/works/vesnamedia.jpg',
-          color: '#D22C22',
           content: [
             { key: 'TYPE', value: 'News' },
             {
               key: 'STACK',
               value: 'Laravel - Bootstrap - jQuery - Slick - Modernizr - MySQL'
+            },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
             },
             {
               key: 'LIVE',
@@ -311,12 +389,15 @@ export default {
         {
           title: 'Barometer',
           image: '/static/img/works/barometer.jpg',
-          color: '#f2c849',
           content: [
             { key: 'TYPE', value: 'Event' },
             {
               key: 'STACK',
               value: 'Laravel - Bootstrap - jQuery - Vue.js - Lodash - MySQL'
+            },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
             },
             {
               key: 'LIVE',
@@ -328,10 +409,13 @@ export default {
         {
           title: 'Harveast Portal',
           image: '/static/img/works/harvest.jpg',
-          color: '#027d2d',
           content: [
             { key: 'TYPE', value: 'CRM' },
             { key: 'STACK', value: 'Laravel - jQuery - Vue.js - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -342,12 +426,15 @@ export default {
         {
           title: 'Skydiving Center',
           image: '/static/img/works/skydiving.jpg',
-          color: '#9c9d9e',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             {
               key: 'STACK',
               value: 'Laravel - jQuery - Vue.js - Moment.js - Polyfill - MySQL'
+            },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
             },
             {
               key: 'LIVE',
@@ -359,10 +446,13 @@ export default {
         {
           title: 'Anna-Ki',
           image: '/static/img/works/annaki.jpg',
-          color: '#62bbc1',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             { key: 'STACK', value: 'Laravel - Bootstrap - jQuery - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
+            },
             {
               key: 'LIVE',
               value: '<a href="http://annaki.com.ua" target="_blank">VISIT</a>'
@@ -373,10 +463,13 @@ export default {
           title:
             '\u0416\u041a \u0421\u0432\u044f\u0442\u043e\u043f\u0435\u0442\u0440\u043e\u0432\u0441\u043a\u0438\u0439',
           image: '/static/img/works/svyatopetrovskyi.jpg',
-          color: '#027d2d',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             { key: 'STACK', value: 'Laravel - Bootstrap - jQuery - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -387,22 +480,28 @@ export default {
         {
           title: 'Chaikivskyi',
           image: '/static/img/works/chaikivskyi.jpg',
-          color: '#ED7102',
           content: [
             { key: 'TYPE', value: 'Portfolio' },
             { key: 'STACK', value: 'Laravel - jQuery - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
+            },
             { key: 'NO LIVE', value: 'Sorry' }
           ]
         },
         {
           title: 'As Breus',
           image: '/static/img/works/asbreus.jpg',
-          color: '#178ED3',
           content: [
             { key: 'TYPE', value: 'Portfolio' },
             {
               key: 'STACK',
               value: 'Laravel - Bootstrap - jQuery - FancyBox - OWL Carousel - MySQL'
+            },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
             },
             {
               key: 'LIVE',
@@ -413,20 +512,26 @@ export default {
         {
           title: 'Impire Tattoo',
           image: '/static/img/works/imperiatatu.jpg',
-          color: '#f2c849',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             { key: 'STACK', value: 'Laravel - jQuery - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
+            },
             { key: 'NO LIVE', value: 'Sorry' }
           ]
         },
         {
           title: 'LeoDigital',
           image: '/static/img/works/leodigital.jpg',
-          color: '#D22C22',
           content: [
             { key: 'TYPE', value: 'Corporate' },
             { key: 'STACK', value: 'Laravel - jQuery - MySQL' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
+            },
             {
               key: 'LIVE',
               value:
@@ -437,10 +542,13 @@ export default {
         {
           title: 'Matrasik',
           image: '/static/img/works/matrasik.jpg',
-          color: '#777777',
           content: [
             { key: 'TYPE', value: 'E-Commerce' },
             { key: 'STACK', value: 'WordPress' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>'
+            },
             {
               key: 'LIVE',
               value:

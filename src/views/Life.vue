@@ -7,16 +7,15 @@
 
       <div class="content">
         <ul class="timeline">
-<!--          TODO: In the future-->
-<!--          <li class="timeline-event">-->
-<!--            <label class="timeline-event-icon"></label>-->
-<!--            <div class="timeline-event-copy">-->
-<!--              <p class="timeline-event-thumbnail">November 2021</p>-->
-<!--              <h3>Svitla Systems Inc.</h3>-->
-<!--              <h4>Laravel Developer</h4>-->
-<!--              <p>In the process...</p>-->
-<!--            </div>-->
-<!--          </li>-->
+          <li class="timeline-event">
+            <label class="timeline-event-icon"></label>
+            <div class="timeline-event-copy">
+              <p class="timeline-event-thumbnail">December 2021</p>
+              <h3>Svitla Systems Inc.</h3>
+              <h4>Laravel Developer</h4>
+              <p>In the process...</p>
+            </div>
+          </li>
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
@@ -29,7 +28,7 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">March 2019</p>
+              <p class="timeline-event-thumbnail">January 2019</p>
               <h3>PaymentWall Inc.</h3>
               <h4>Laravel Developer (Full Stack)</h4>
               <p>Classified.</p>
@@ -38,9 +37,7 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">
-                December 2017
-              </p>
+              <p class="timeline-event-thumbnail">December 2017</p>
               <h3>CF.Digital</h3>
               <h4>Laravel Developer (Full Stack)</h4>
               <p>Creating different websites, e-commerce, CMS from scratch.</p>
@@ -49,7 +46,7 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">October 2017</p>
+              <p class="timeline-event-thumbnail">September 2017</p>
               <h3>Intraweb Agency</h3>
               <h4>Laravel Developer (Full Stack)</h4>
               <p>
