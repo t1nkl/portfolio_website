@@ -202,16 +202,18 @@ export default {
     fetchData () {
       this.words = [
         ['Laravel', 10],
-        ['Vue.js', 9],
-        ['PostgreSQL', 8],
+        ['PostgreSQL', 9],
+        ['Vue.js', 8],
         ['Lumen', 7],
         ['MySQL', 7],
         ['PHP', 7],
         ['Docker', 7],
         ['Redis', 6],
+        ['DynamoDB', 6],
         ['Memcached', 6],
         ['RabbitMQ', 6],
-        ['AWS', 6],
+        ['SQS', 6],
+        ['AWS RDS', 6],
         ['ElasticSearch', 5],
         ['WebSocket', 5],
         ['DigitalOcean', 5],
@@ -244,11 +246,12 @@ export default {
         ['haproxy', 3],
         ['NetData', 3],
         ['WaveScope', 3],
+        ['Lens', 3],
         ['OOP', 3],
         ['MVC', 3],
         ['CORS', 3],
-        ['jQuery', 2],
-        ['JavaScript', 2],
+        ['jQuery', 1],
+        ['JavaScript', 1],
         ['CSS', 1],
         ['Bootstrap', 1],
         ['HTML', 1],
@@ -266,7 +269,7 @@ export default {
         switch (word[1]) {
           case 10:
             return '#e74430'
-          case 9:
+          case 8:
             return '#4fc08d'
           default:
             return this.colorItems[
