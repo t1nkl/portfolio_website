@@ -9,14 +9,13 @@
         :pre-type-delay="70"
         :repeat="0"
         :shuffle="false"
-        :text="['Matters', 'Important', 'Reload Page', 'FKING AMAZING']"
+        :text="['Matters', 'Important', 'Reload Page']"
         :type-delay="70"
         caret-animation="phase"
         erase-style="backspace"
         initial-action="typing"
       >
-      </vue-typer>
-      .
+      </vue-typer>.
     </h1>
 
     <h2 class="divider-line fade-component"><span>MORE</span></h2>
@@ -220,17 +219,23 @@ export default {
         ['Kibana', 5],
         ['Jenkins', 5],
         ['Jira', 5],
+        ['Microsoft Azure', 5],
+        ['Microsoft Teams', 5],
         ['GitLab', 5],
         ['Tarantool', 5],
         ['Kubernetes', 5],
         ['Amazon S3', 5],
+        ['Symfony', 5],
         ['PHPUnit', 4],
         ['PHPSwoole', 4],
         ['RESTful API', 4],
+        ['JSON', 4],
+        ['XML', 4],
         ['Composer', 4],
         ['Git', 4],
         ['DRY', 4],
         ['KISS', 4],
+        ['DDD', 4],
         ['TDD', 4],
         ['SPA', 4],
         ['RPC', 4],

@@ -16,8 +16,7 @@
           erase-style="backspace"
           initial-action="typing"
         >
-        </vue-typer>
-        .
+        </vue-typer>.
       </h1>
 
       <div class="content">
@@ -115,6 +114,23 @@ export default {
     },
     fetchData () {
       this.works = [
+        {
+          title: 'Classified',
+          image: '/static/img/works/svitla-classified-2.png',
+          content: [
+            { key: 'TYPE', value: 'Classified' },
+            { key: 'STACK', value: 'Classified' },
+            {
+              key: 'COMPANY',
+              value: '<a href="https://svitla.com" target="_blank">Svitla Systems Inc.</a>'
+            },
+            {
+              key: 'LIVE',
+              value:
+                '<a href="/works">Classified</a>'
+            }
+          ]
+        },
         {
           title: 'Classified',
           image: '/static/img/works/svitla-classified-1.png',
