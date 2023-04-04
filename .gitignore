@@ -14,6 +14,7 @@ dist-ssr
 coverage
 *.local
 .firebaserc
+.firebase
 .env
 
 /cypress/videos/
