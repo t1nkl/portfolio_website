@@ -94,10 +94,8 @@ export default {
       },
       {
         value: function (word) {
-          // eslint-disable-next-line
-          var chance = new Chance(word[0]) /* eslint-disable */
-
-          return chance.pickone([0, 3 / 4]) /* eslint-disable */
+          const chance = Math.floor(Math.random() * word.length)
+          return [0, 3 / 4][chance % 2]
         },
         svg: (function () {
           var svgNS = 'http://www.w3.org/2000/svg'
@@ -114,7 +112,7 @@ export default {
                   path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
 
                   return path
-                })(),
+                })()
               )
 
               svg.appendChild(
@@ -124,21 +122,20 @@ export default {
                   path.setAttribute('transform', 'rotate(90 6 6)')
 
                   return path
-                })(),
+                })()
               )
 
               return svg
-            })(),
+            })()
           )
 
           return URL.createObjectURL(new Blob([div.innerHTML]))
-        })(),
+        })()
       },
       {
         value: function (word) {
-          var chance = new Chance(word[0]) /* eslint-disable */
-
-          return chance.pickone([0, 1 / 8, 3 / 4, 7 / 8]) /* eslint-disable */
+          const chance = Math.floor(Math.random() * word.length)
+          return [0, 1 / 8, 3 / 4, 7 / 8][chance % 4]
         },
         svg: (function () {
           var svgNS = 'http://www.w3.org/2000/svg'
@@ -155,7 +152,7 @@ export default {
                   path.setAttribute('d', 'M0 7 L0 5 L12 5 L12 7 Z')
 
                   return path
-                })(),
+                })()
               )
 
               svg.appendChild(
@@ -165,7 +162,7 @@ export default {
                   path.setAttribute('transform', 'rotate(45 6 6)')
 
                   return path
-                })(),
+                })()
               )
 
               svg.appendChild(
@@ -175,7 +172,7 @@ export default {
                   path.setAttribute('transform', 'rotate(90 6 6)')
 
                   return path
-                })(),
+                })()
               )
 
               svg.appendChild(
@@ -185,17 +182,17 @@ export default {
                   path.setAttribute('transform', 'rotate(315 6 6)')
 
                   return path
-                })(),
+                })()
               )
 
               return svg
-            })(),
+            })()
           )
 
           return URL.createObjectURL(new Blob([div.innerHTML]))
-        })(),
-      },
-    ],
+        })()
+      }
+    ]
   }),
   methods: {
     fetchData () {
@@ -287,9 +284,9 @@ export default {
         ['TDD', 4],
         ['S.O.L.I.D.', 4],
         ['OOP', 4],
-        ['MVC', 4],
+        ['MVC', 4]
       ]
-    },
+    }
   },
   computed: {
     rotation: function () {
@@ -305,12 +302,13 @@ export default {
           case 8:
             return '#4fc08d'
           default:
+            // eslint-disable-next-line standard/computed-property-even-spacing
             return this.colorItems[
               this.randomInteger(0, this.colorItems.length - 1)
-              ]
+            ]
         }
       }
-    },
+    }
   },
   watch: {
     $route (to, from) {
@@ -318,8 +316,9 @@ export default {
       this.rotationItemIndex = undefined
 
       this.fetchData()
+      // eslint-disable-next-line no-undef
       this.fontFamily = chance.pickone(
-        this.fontFamilyValues,
+        this.fontFamilyValues
       ) /* eslint-disable */
       this.rotationItemIndex = chance.integer({
         /* eslint-disable */
