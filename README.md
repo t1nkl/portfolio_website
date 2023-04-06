@@ -14,21 +14,16 @@ This website based on:
 
 
 ## Project setup
-```
+```sh
 npm install
 ```
 
 ### Compiles for development
-```
+```sh
 npm run dev
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
 ### Compiles and minifies for production
-```
+```sh
 npm run build
 ```
