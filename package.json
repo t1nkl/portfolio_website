@@ -1,6 +1,6 @@
 {
   "name": "portfolio_website",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Kyryll Kovalenko portfolio website",
   "author": "Kyryll Kovalenko <kyryll.kovalenko@gmail.com>",
   "private": true,
@@ -43,10 +43,5 @@
   "engines": {
     "node": ">= 18.0.0",
     "npm": ">= 8.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }
