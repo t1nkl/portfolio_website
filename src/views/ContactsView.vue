@@ -1,9 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TextMorph from '@/components/animations/TextMorph.vue'
+</script>
 
 <template>
   <div>
     <div class="contact-holder fade-component">
-      <h1>Every. Question. Matters.</h1>
+      <TextMorph
+        :static-words="''"
+        :dynamic-words="['Every.', 'Question.', 'Matters.']"
+        :text-align="'left'"
+      />
 
       <div class="content">
         <p>Some cool text will be here in future...</p>

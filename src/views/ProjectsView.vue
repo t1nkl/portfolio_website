@@ -3,6 +3,7 @@ import VLazyImage from 'v-lazy-image'
 import { FastAverageColor } from 'fast-average-color'
 import { useProjectsStore } from '@/stores/projects'
 import { useSkillsStore } from '@/stores/skills'
+import TextFlip from '@/components/animations/TextFlip.vue'
 
 const skillsStore = useSkillsStore()
 const projectsStore = useProjectsStore()
@@ -27,7 +28,11 @@ function leave() {
 <template>
   <div class="projects">
     <div class="works-common-holder fade-component">
-      <h1>Every. Project. Experienced.</h1>
+      <TextFlip
+        :static-words="''"
+        :dynamic-words="['Every.', 'Project.', 'Experienced.']"
+        :text-align="'left'"
+      />
     </div>
 
     <h2 class="divider-line fade-component"><span>MORE</span></h2>

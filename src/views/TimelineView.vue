@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { useTimelineStore } from '@/stores/timeline'
+import TextFlip from '@/components/animations/TextFlip.vue'
 const timelineStore = useTimelineStore()
 </script>
 
 <template>
   <div class="life-holder fade-component">
-    <h1>Every. Point. Important.</h1>
+    <TextFlip
+      :static-words="''"
+      :dynamic-words="['Every.', 'Point.', 'Important.']"
+      :text-align="'left'"
+    />
 
     <h2 class="divider-line fade-component"><span>MORE</span></h2>
 
