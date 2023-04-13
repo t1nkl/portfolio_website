@@ -19,13 +19,13 @@ function dotsAnimation() {
     .to('.dot-large', { duration: 0.5, scale: 0, autoAlpha: 0, ease: 'power1.inOut' }, 2.5)
 
   // Set the starting position of all the dots
-  var dots = document.querySelectorAll('.dot')
-  dots.forEach(function (dot) {
-    setDotPosition(dot)
+  const dots = document.querySelectorAll('.dot')
+  dots.forEach(function (dot: Element) {
+    setDotPosition(dot as HTMLElement)
   })
 
   // Set the starting position of the dots
-  function setDotPosition(dot) {
+  function setDotPosition(dot: HTMLElement) {
     var x = Math.random() * window.innerWidth
     var y = Math.random() * window.innerHeight
     var size = parseInt(dot.style.width)
@@ -47,7 +47,8 @@ function dotsAnimation() {
     },
     onUpdate: function () {
       // Keep the dots within the window bounds
-      dots.forEach(function (dot) {
+      // @ts-ignore-next-line
+      dots.forEach(function (dot: HTMLElement) {
         var x = parseInt(dot.style.left)
         var y = parseInt(dot.style.top)
         var size = parseInt(dot.style.width)
