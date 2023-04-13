@@ -10,6 +10,10 @@ const props = defineProps({
     type: Array as PropType<string[]>,
     default: () => []
   },
+  forEachWordAnimation: {
+    type: Boolean as PropType<boolean>,
+    default: () => false
+  },
   textAlign: {
     type: String as PropType<string>,
     default: 'center'
@@ -21,17 +25,31 @@ const props = defineProps({
   <div class="text-flip">
     <h1 v-if="props.staticWords">{{ props.staticWords }}</h1>
     &nbsp;
-    <span v-for="(word, index) in props.dynamicWords" :key="index">
-      <h1
-        v-for="(letter, letterIndex) in word"
-        :key="letterIndex"
-        :style="'--i:' + letterIndex + '; --delay:' + letterIndex * 50 + 'ms'"
-        class="letter"
-      >
-        {{ letter }}
-      </h1>
-      &nbsp;
-    </span>
+    <div v-if="props.forEachWordAnimation">
+      <span v-for="(word, index) in props.dynamicWords" :key="index">
+        <h1
+          v-for="(letter, letterIndex) in word"
+          :key="letterIndex"
+          :style="'--i:' + letterIndex + '; --delay:' + letterIndex * 100 + 'ms'"
+          class="letter"
+        >
+          {{ letter }}
+        </h1>
+        &nbsp;
+      </span>
+    </div>
+    <div v-else>
+      <span>
+        <h1
+          v-for="(letter, letterIndex) in props.dynamicWords?.join('&nbsp;')"
+          :key="letterIndex"
+          :style="'--i:' + letterIndex + '; --delay:' + letterIndex * 100 + 'ms'"
+          class="letter"
+        >
+          {{ letter }}
+        </h1>
+      </span>
+    </div>
   </div>
 </template>
 

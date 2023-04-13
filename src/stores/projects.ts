@@ -32,23 +32,23 @@ export const useProjectsStore = defineStore({
           type: 'Product',
           stack: 'Classified',
           company: '<a href="https://boosteroid.com" target="_blank">Boosteroid S.R.L.</a>',
-          url: '<a href="https://cloud.boosteroid.com" target="_blank">VISIT</a>'
+          url: 'https://cloud.boosteroid.com'
         },
         {
           title: 'Boosteroid Partners',
           image: '/img/works/boosteroid-partners.png',
           type: 'Product',
-          stack: 'Classified',
+          stack: 'Laravel - Octane - Vue.js<br/>PostgreSQL',
           company: '<a href="https://boosteroid.com" target="_blank">Boosteroid S.R.L.</a>',
-          url: '<a href="https://boosteroid.partners" target="_blank">VISIT</a>'
+          url: 'https://boosteroid.partners'
         },
         {
           title: 'SARS-COV-2 Statistics',
           image: '/img/works/sars-cov-2-app.jpg',
           type: 'Website',
-          stack: 'Vue.js (Vue SLI)',
+          stack: 'Vue.js 3',
           company: 'Personal',
-          url: '<a href="https://sars-cov-2-app.web.app" target="_blank">VISIT</a>'
+          url: 'https://sars-cov-2-app.web.app'
         },
         {
           title: 'FasterPay',
@@ -56,15 +56,15 @@ export const useProjectsStore = defineStore({
           type: 'Enterprise Payment System',
           stack: 'Classified',
           company: '<a href="https://www.paymentwall.com" target="_blank">PaymentWall Inc.</a>',
-          url: '<a href="https://www.fasterpay.com" target="_blank">VISIT</a>'
+          url: 'https://www.fasterpay.com'
         },
         {
           title: 'Terminal 3',
           image: '/img/works/terminal3.png',
           type: 'Enterprise E-Commerce System',
-          stack: 'Classified',
+          stack: 'Laravel - React - MySQL',
           company: '<a href="https://www.paymentwall.com" target="_blank">PaymentWall Inc.</a>',
-          url: '<a href="https://www.terminal3.com" target="_blank">VISIT</a>'
+          url: 'https://www.terminal3.com'
         },
         {
           title: 'Samsonite',
@@ -72,7 +72,7 @@ export const useProjectsStore = defineStore({
           type: 'E-Commerce',
           stack: 'DeltaCMS',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="https://samsonite.ua" target="_blank">VISIT</a>'
+          url: 'https://samsonite.ua'
         },
         {
           title: 'Solente',
@@ -80,7 +80,7 @@ export const useProjectsStore = defineStore({
           type: 'Catalog',
           stack: 'DeltaCMS',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="https://solente.ua" target="_blank">VISIT</a>'
+          url: 'https://solente.ua'
         },
         {
           title: 'Julia Chulska',
@@ -88,15 +88,15 @@ export const useProjectsStore = defineStore({
           type: 'Portfolio',
           stack: 'DeltaCMS',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="https://chulska.com" target="_blank">VISIT</a>'
+          url: 'https://chulska.com'
         },
         {
           title: 'DeltaCMS',
           image: '/img/works/delta.jpg',
           type: 'CMS',
-          stack: 'Laravel - Vue.js (SPA) - Tailwind.css - ElementUI - Redis - PostgreSQL',
+          stack: 'Laravel - Vue.js - ElementUI<br/>MySQL',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="http://206.189.53.55/auth/login" target="_blank">VISIT</a>'
+          url: 'http://206.189.53.55/auth/login'
         },
         {
           title: 'UltraGroup',
@@ -104,7 +104,7 @@ export const useProjectsStore = defineStore({
           type: 'Corporate',
           stack: 'Laravel - MySQL',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="https://ultragroup.com.ua" target="_blank">VISIT</a>'
+          url: 'https://ultragroup.com.ua'
         },
         {
           title: 'Imperium Investments',
@@ -112,7 +112,7 @@ export const useProjectsStore = defineStore({
           type: 'Corporate',
           stack: 'Laravel - MySQL',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="http://imperiuminvestments.co.uk" target="_blank">VISIT</a>'
+          url: 'https://imperiuminvestments.co.uk'
         },
         {
           title: "L'Oreal",
@@ -120,15 +120,15 @@ export const useProjectsStore = defineStore({
           type: 'Corporate',
           stack: 'Laravel - MySQL',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="https://loreal.ua" target="_blank">VISIT</a>'
+          url: 'https://loreal.ua'
         },
         {
           title: 'CatChat',
           image: '/img/works/catchat.jpg',
-          type: 'Goods',
+          type: 'Landing',
           stack: 'Laravel - MySQL',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="http://catchat.life" target="_blank">VISIT</a>'
+          url: 'https://catchat.life'
         },
         {
           title: 'Puzata Hata',
@@ -136,55 +136,55 @@ export const useProjectsStore = defineStore({
           type: 'Corporate',
           stack: 'Laravel - MySQL',
           company: '<a href="https://cf.digital" target="_blank">CF digital agency</a>',
-          url: '<a href="https://puzatahata.ua" target="_blank">VISIT</a>'
+          url: 'https://puzatahata.ua'
         },
         {
           title: 'VESNAmedia',
           image: '/img/works/vesnamedia.jpg',
-          type: 'News',
-          stack: 'Laravel - Bootstrap - jQuery - Slick - Modernizr - MySQL',
+          type: 'Blog',
+          stack: 'Laravel - Bootstrap - jQuery<br/>Slick - Modernizr<br/>MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="https://www.vesnamedia.com" target="_blank">VISIT</a>'
+          url: 'https://www.vesnamedia.com'
         },
         {
           title: 'Barometer',
           image: '/img/works/barometer.jpg',
-          type: 'Event',
-          stack: 'Laravel - Bootstrap - jQuery - Vue.js - Lodash - MySQL',
+          type: 'Landing',
+          stack: 'Laravel - Bootstrap - jQuery<br/>Vue.js - Lodash<br/>MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="http://2017.barometer.show" target="_blank">VISIT</a>'
+          url: 'http://2017.barometer.show'
         },
         {
           title: 'Harveast Portal',
           image: '/img/works/harvest.jpg',
           type: 'Corporate',
-          stack: 'Laravel - Bootstrap - jQuery - Vue.js - Lodash - MySQL',
+          stack: 'Laravel - Bootstrap - jQuery<br/>Vue.js - Lodash<br/>MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="https://harveast.com" target="_blank">VISIT</a>'
+          url: 'https://harveast.com'
         },
         {
           title: 'Skydiving Center',
           image: '/img/works/skydiving.jpg',
           type: 'Corporate',
-          stack: 'Laravel - jQuery - Vue.js - Moment.js - Polyfill - MySQL',
+          stack: 'Laravel - jQuery - Moment.js<br/>Vue.js - Polyfill<br/>MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="http://skydiving.com.ua" target="_blank">VISIT</a>'
+          url: 'https://skydiving.com.ua'
         },
         {
           title: 'Anna-Ki',
           image: '/img/works/annaki.jpg',
           type: 'Corporate',
-          stack: 'Laravel - jQuery - Vue.js - Moment.js - Polyfill - MySQL',
+          stack: 'Laravel - jQuery - Moment.js<br/>Vue.js - Polyfill<br/>MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="https://annaki.com.ua" target="_blank">VISIT</a>'
+          url: 'https://annaki.com.ua'
         },
         {
           title: 'Svyatopetrovsky RC',
           image: '/img/works/svyatopetrovskyi.jpg',
           type: 'Corporate',
-          stack: 'Laravel - Bootstrap - jQuery - MySQL',
+          stack: 'Laravel - Bootstrap - jQuery<br/>MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="http://www.svyatopetrovskyi.com.ua" target="_blank">VISIT</a>'
+          url: 'https://www.svyatopetrovskyi.com.ua'
         },
         {
           title: 'Chaikivskyi',
@@ -198,9 +198,9 @@ export const useProjectsStore = defineStore({
           title: 'As Breus',
           image: '/img/works/asbreus.jpg',
           type: 'Portfolio',
-          stack: 'Laravel - Bootstrap - jQuery - FancyBox - OWL Carousel - MySQL',
+          stack: 'Laravel - Bootstrap - jQuery<br/>OWL Carousel - FancyBox<br/>MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="http://as-breus.com" target="_blank">VISIT</a>'
+          url: 'https://as-breus.com'
         },
         {
           title: 'Impire Tattoo',
@@ -216,7 +216,7 @@ export const useProjectsStore = defineStore({
           type: 'Corporate',
           stack: 'Laravel - jQuery - MySQL',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="https://leodigital.com.ua" target="_blank">VISIT</a>'
+          url: 'https://leodigital.com.ua'
         },
         {
           title: 'Matrasik',
@@ -224,7 +224,7 @@ export const useProjectsStore = defineStore({
           type: 'E-Commerce',
           stack: 'WordPress',
           company: '<a href="https://leodigital.com.ua" target="_blank">LeoDigital agency</a>',
-          url: '<a href="https://matrasik.kiev.ua" target="_blank">VISIT</a>'
+          url: 'https://matrasik.kiev.ua'
         }
       ]
     },

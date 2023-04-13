@@ -44,10 +44,11 @@ export const useSkillsStore = defineStore({
       { skill: 'WaveScope', level: 3 },
       { skill: 'Lens', level: 3 },
       { skill: 'Docker', level: 7 },
-      { skill: 'Jenkins', level: 5 },
-      { skill: 'Microsoft Azure', level: 5 },
-      { skill: 'GitLab', level: 5 },
       { skill: 'Kubernetes', level: 3 },
+      { skill: 'Jenkins', level: 5 },
+      { skill: 'GitHab', level: 5 },
+      { skill: 'GitLab', level: 5 },
+      { skill: 'Microsoft Azure', level: 5 },
 
       // Frontend
       { skill: 'Vue.js', level: 8 },
@@ -82,7 +83,7 @@ export const useSkillsStore = defineStore({
       { skill: 'Pusher', level: 5 },
       { skill: 'Amazon S3', level: 5 },
       { skill: 'Composer', level: 4 },
-      { skill: 'NPM', level: 4 },
+      { skill: 'npm', level: 4 },
       { skill: 'Git', level: 4 },
       { skill: 'RESTful API', level: 4 },
 

@@ -67,21 +67,19 @@ function leave() {
 
         <div class="content">
           <p>
-            <strong>COMPANY</strong><br /><span
-              style="font-size: 20px"
-              v-html="project.company"
-            ></span>
+            <strong>COMPANY</strong>
+            <br />
+            <span class="content__company" v-html="project.company"></span>
           </p>
-          <h2>{{ project.title }}</h2>
+          <h2 class="content__project" v-if="project.url">
+            <a :href="project.url" target="_blank">{{ project.title }}</a>
+          </h2>
+          <h2 v-else>{{ project.title }}</h2>
           <p>
             <strong>TYPE</strong><br /><span style="font-size: 20px" v-html="project.type"></span>
           </p>
           <p>
             <strong>STACK</strong><br /><span style="font-size: 20px" v-html="project.stack"></span>
-          </p>
-
-          <p v-if="project.url">
-            <strong>LIVE</strong><br /><span style="font-size: 20px" v-html="project.url"></span>
           </p>
         </div>
       </div>
@@ -105,204 +103,215 @@ function leave() {
   }
 }
 
-.v-lazy-image {
-  filter: blur(10px);
-  transition: filter 0.7s;
-}
+.projects {
+  .v-lazy-image {
+    filter: blur(10px);
+    transition: filter 0.7s;
+  }
 
-.v-lazy-image-loaded {
-  filter: blur(0);
-}
+  .v-lazy-image-loaded {
+    filter: blur(0);
+  }
 
-.works-common-holder {
-  .content {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    width: calc(100vw - 120px);
-    max-width: 760px;
-    padding-bottom: 20px;
-    padding-left: 60px;
-    @include maxquery(640px) {
-      width: calc(100% - 32px);
-      padding-left: 0px;
-      padding-right: 0px;
+  .works-common-holder {
+    .content {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      width: calc(100vw - 120px);
+      max-width: 760px;
+      padding-bottom: 20px;
+      padding-left: 60px;
+      @include maxquery(640px) {
+        width: calc(100% - 32px);
+        padding-left: 0px;
+        padding-right: 0px;
+      }
     }
   }
-}
 
-// works
-.works-holder {
-  position: relative;
-  display: table;
-  overflow: hidden;
-
-  .work {
+  // works
+  .works-holder {
     position: relative;
     display: table;
-    overflow: visible;
-    width: 33.3333%;
-    height: auto;
-    min-height: 400px;
-    padding: 0px;
-    float: left;
+    overflow: hidden;
 
-    @include maxquery(992px) {
-      width: calc(50% - 32px);
-    }
-    @include maxquery(768px) {
-      width: calc(100% - 32px);
-    }
-
-    .content {
-      position: absolute;
-      display: block;
-      width: 100%;
+    .work {
+      position: relative;
+      display: table;
+      overflow: visible;
+      width: 33.3333%;
       height: auto;
-      font-size: 14px;
-      margin: 0px;
-      line-height: 18px;
-      top: 50%;
-      left: -16px;
-      transform: translate(0%, -50%);
-      opacity: 0;
-      visibility: hidden;
-      text-align: center;
-      transition: all 0.45s cubic-bezier(1, 0.5, 0.8, 1);
+      min-height: 400px;
+      padding: 0px;
+      float: left;
 
-      p {
-        font-size: 16px;
-        line-height: 20px;
-        padding: 0px;
-        margin: 0px;
-        padding-bottom: 16px;
-
-        span {
-          font-size: 10px;
-        }
-
-        &.copyright {
-          line-height: 14px;
-        }
+      @include maxquery(992px) {
+        width: calc(50% - 32px);
+      }
+      @include maxquery(768px) {
+        width: calc(100% - 32px);
       }
 
-      a {
-        color: #363636;
-        text-decoration: none;
-      }
-
-      h2 {
-        font-family: 'Open Sans', sans-serif;
-      }
-    }
-
-    img {
-      &.logo {
-        max-height: 60%;
-        max-width: 85%;
-        width: auto;
-        height: auto;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        z-index: -1;
-        transition: all 0.45s cubic-bezier(1, 0.5, 0.8, 1);
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-    .logo-bg-holder {
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-
-      .logo-bg {
+      .content {
         position: absolute;
         display: block;
         width: 100%;
-        height: 100%;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
+        height: auto;
+        font-size: 14px;
+        margin: 0px;
+        line-height: 18px;
         top: 50%;
-        left: 50%;
-        box-shadow: 0 0 36px rgba(0, 0, 0, 0.15), 0 0 36px rgba(0, 0, 0, 0.05);
+        left: -16px;
+        transform: translate(0%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        text-align: center;
         transition: all 0.45s cubic-bezier(1, 0.5, 0.8, 1);
 
-        &.work-oval-big {
-          width: 450px;
-          height: 390px;
-          background: #a5d6a7;
-          transform: translate(-50%, -50%);
-          z-index: -3;
-          opacity: 0;
-          visibility: hidden;
+        p {
+          font-size: 16px;
+          line-height: 20px;
+          padding: 0px;
+          margin: 0px;
+          padding-bottom: 16px;
+
+          span {
+            font-size: 10px;
+          }
+
+          &.copyright {
+            line-height: 14px;
+          }
         }
 
-        &.work-oval-small {
-          width: 390px;
-          height: 360px;
-          background: #a5d6a7;
-          transform: translate(-50%, -50%);
-          z-index: -2;
-          opacity: 0;
-          visibility: hidden;
+        a {
+          color: #363636;
+          text-decoration: none;
         }
 
-        &.work-circle {
-          width: 320px;
-          height: 310px;
-          background: #a5d6a7;
-          transform: translate(-50%, -50%);
-          z-index: -1;
-          opacity: 0;
-          visibility: hidden;
+        h2 {
+          font-family: 'Open Sans', sans-serif;
         }
-      }
-    }
 
-    &:hover {
-      .content {
-        left: 0px;
-        opacity: 1;
-        visibility: visible;
+        .content__company {
+          font-size: 20px;
+          text-decoration: underline dotted;
+        }
+
+        .content__project {
+          text-decoration: underline;
+        }
       }
 
       img {
         &.logo {
-          opacity: 0;
-          visibility: hidden;
+          max-height: 60%;
+          max-width: 85%;
+          width: auto;
+          height: auto;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          z-index: -1;
+          transition: all 0.45s cubic-bezier(1, 0.5, 0.8, 1);
+          opacity: 1;
+          visibility: visible;
         }
       }
 
       .logo-bg-holder {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+
         .logo-bg {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          box-shadow: 0 0 36px rgba(0, 0, 0, 0.15), 0 0 36px rgba(0, 0, 0, 0.05);
+          transition: all 0.45s cubic-bezier(1, 0.5, 0.8, 1);
+
           &.work-oval-big {
-            transform: scale(1) translate(-50%, -50%);
-            opacity: 0.25;
-            visibility: visible;
+            width: 450px;
+            height: 390px;
+            background: #a5d6a7;
+            transform: translate(-50%, -50%);
+            z-index: -3;
+            opacity: 0;
+            visibility: hidden;
           }
 
           &.work-oval-small {
-            transform: scale(1) translate(-50%, -50%);
-            opacity: 0.45;
-            visibility: visible;
+            width: 390px;
+            height: 360px;
+            background: #a5d6a7;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+            opacity: 0;
+            visibility: hidden;
           }
 
           &.work-circle {
-            transform: scale(1) translate(-50%, -50%);
-            opacity: 1;
-            visibility: visible;
+            width: 320px;
+            height: 310px;
+            background: #a5d6a7;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+      }
+
+      &:hover {
+        .content {
+          left: 0px;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        img {
+          &.logo {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        .logo-bg-holder {
+          .logo-bg {
+            &.work-oval-big {
+              transform: scale(1) translate(-50%, -50%);
+              opacity: 0.25;
+              visibility: visible;
+            }
+
+            &.work-oval-small {
+              transform: scale(1) translate(-50%, -50%);
+              opacity: 0.45;
+              visibility: visible;
+            }
+
+            &.work-circle {
+              transform: scale(1) translate(-50%, -50%);
+              opacity: 1;
+              visibility: visible;
+            }
           }
         }
       }
