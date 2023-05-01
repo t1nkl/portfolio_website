@@ -14,8 +14,9 @@ onMounted(() => {
         id="index_logo-txt"
         alt="t1nkl - Web Developer - Logo"
         class="logo-txt"
-        src="@/assets/logo.png"
+        src="@/assets/logo.webp"
         width="300"
+        height="386"
       />
       <div id="index_logo-bg-holder" class="logo-bg-holder">
         <div id="index_oval-big" class="logo-bg oval-big"></div>

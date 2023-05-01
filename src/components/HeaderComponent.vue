@@ -16,7 +16,7 @@ onMounted(() => {
           alt="t1nkl - Web Developer - Logo"
           class="logo-txt"
           height="199"
-          src="@/assets/logo.png"
+          src="@/assets/logo.webp"
           width="380"
         />
         <div class="logo-bg-holder">
