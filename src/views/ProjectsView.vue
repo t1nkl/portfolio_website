@@ -35,7 +35,7 @@ function leave() {
       />
     </div>
 
-    <h2 class="divider-line fade-component"><span>MORE</span></h2>
+    <h2 class="divider-line fade-component"><span>projects</span></h2>
 
     <div class="works-holder fade-component">
       <div

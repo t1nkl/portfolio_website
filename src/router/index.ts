@@ -14,7 +14,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/(?!skills|projects|timeline|contacts)',
+      path: '/?:(skills|projects|timeline|contacts)',
       component: ElementorLayout,
       children: [
         {

@@ -14,8 +14,8 @@ export const useSkillsStore = defineStore({
       { skill: 'PHP', level: 7 },
       { skill: 'XML', level: 4 },
       { skill: 'SQL', level: 4 },
+      { skill: 'TypeScript', level: 2 },
       { skill: 'JavaScript', level: 1 },
-      { skill: 'TypeScript', level: 1 },
 
       // Framework
       { skill: 'Laravel', level: 10 },
@@ -52,12 +52,13 @@ export const useSkillsStore = defineStore({
 
       // Frontend
       { skill: 'Vue.js', level: 8 },
+      { skill: 'Nuxt.js', level: 5 },
+      { skill: 'Vuex', level: 4 },
+      { skill: 'Pinia', level: 4 },
       { skill: 'SPA', level: 4 },
+      { skill: 'TailwindCSS', level: 4 },
       { skill: 'React', level: 3 },
       { skill: 'Redux', level: 3 },
-      { skill: 'Vuex', level: 3 },
-      { skill: 'Pinia', level: 3 },
-      { skill: 'TailwindCSS', level: 3 },
       { skill: 'Axios', level: 3 },
       { skill: 'Ajax', level: 3 },
       { skill: 'JSON', level: 4 },
@@ -92,7 +93,6 @@ export const useSkillsStore = defineStore({
       { skill: 'Service Oriented Architecture', level: 4 },
       { skill: 'Microservice Architecture', level: 4 },
       { skill: 'Event Sourcing', level: 4 },
-      { skill: 'DDD', level: 4 },
       { skill: 'TDD', level: 4 },
       { skill: 'DRY', level: 4 },
       { skill: 'KISS', level: 4 },

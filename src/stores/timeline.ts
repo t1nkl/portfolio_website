@@ -12,8 +12,9 @@ export const useTimelineStore = defineStore({
       {
         company: 'Svitla Systems Inc.',
         position: 'Senior Web Developer',
-        description: 'In the process...',
-        date: 'December 2021'
+        description:
+          'Firstly, creating a video analytics platform from scratch.<br>Secondly, working on a huge enterprise analytics platform.',
+        date: 'January 2022'
       },
       {
         company: 'Boosteroid Cloud Gaming',

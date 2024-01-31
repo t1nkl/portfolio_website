@@ -12,7 +12,7 @@ const timelineStore = useTimelineStore()
       :text-align="'left'"
     />
 
-    <h2 class="divider-line fade-component"><span>MORE</span></h2>
+    <h2 class="divider-line fade-component"><span>timeline</span></h2>
 
     <div class="content">
       <ul class="timeline">
@@ -26,7 +26,7 @@ const timelineStore = useTimelineStore()
             <p class="timeline-event-thumbnail">{{ timeline.date }}</p>
             <h3>{{ timeline.company }}</h3>
             <h4>{{ timeline.position }}</h4>
-            <p>{{ timeline.description }}</p>
+            <p v-html="timeline.description"></p>
           </div>
         </li>
       </ul>

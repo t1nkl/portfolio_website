@@ -4,6 +4,7 @@ import VueWordCloud from 'vuewordcloud'
 import { useSkillsStore } from '@/stores/skills'
 import { useRoute } from 'vue-router'
 import { vueWordCloudRotationItems } from '@/utils/vueWordCloudRotationItems'
+import TextFlip from '@/components/animations/TextFlip.vue'
 
 const skillsStore = useSkillsStore()
 
@@ -80,7 +81,13 @@ onBeforeMount(() => {
 
 <template>
   <div class="skills author-holder fade-component">
-    <h1>Every. Word. Sense.</h1>
+    <TextFlip
+      :static-words="''"
+      :dynamic-words="['Every.', 'Word.', 'Sense.']"
+      :text-align="'left'"
+    />
+
+    <h2 class="divider-line fade-component"><span>skills</span></h2>
 
     <div
       class="vue-word-cloud"
@@ -263,7 +270,6 @@ onBeforeMount(() => {
     position: relative;
     display: block;
     overflow: hidden;
-    width: 100%;
     width: calc(100vw - 120px);
     max-width: 760px;
     padding-bottom: 20px;

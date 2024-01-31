@@ -69,7 +69,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 84px 16px;
+  padding: 30px 16px;
   max-width: 100%;
 
   @include maxquery(640px) {

@@ -20,7 +20,7 @@ import TextMorph from '@/components/animations/TextMorph.vue'
         </p>
       </div>
 
-      <h2 class="divider-line fade-component"><span>contact</span></h2>
+      <h2 class="divider-line fade-component"><span>contacts</span></h2>
 
       <div class="social">
         <ul>
