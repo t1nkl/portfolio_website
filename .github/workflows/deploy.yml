@@ -40,4 +40,4 @@ jobs:
         with:
           args: deploy --only hosting --project my-projects-6fe1a
         env:
-          FIREBASE_TOKEN: "1//09D5DSos7_nJCCgYIARAAGAkSNwF-L9IrB6pDgbu_MEYNsImEt-R7Xn-MkNnc4mpWjA1oOCVwfsKbos8Sx9mnDDc9GJebHT3ecOk"
+          FIREBASE_TOKEN: "1//09OljRW3F82RsCgYIARAAGAkSNwF-L9Ir_kcjigL2Zq-rHaPYpb_kOYIkaLPAFkE1Deg3D6hsUct7HDCF_OABuX9DDAQoriXqVCU"
