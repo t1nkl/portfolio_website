@@ -27,6 +27,7 @@ export const useSkillsStore = defineStore({
       { skill: 'MySQL', level: 7 },
       { skill: 'Redis', level: 6 },
       { skill: 'MongoDB', level: 5 },
+      { skill: 'ClickHouse', level: 5 },
       { skill: 'Tarantool', level: 5 },
       { skill: 'Memcached', level: 6 },
       { skill: 'AWS RDS', level: 6 },
@@ -34,6 +35,7 @@ export const useSkillsStore = defineStore({
 
       // Cloud
       { skill: 'AWS', level: 5 },
+      { skill: 'Google Cloud', level: 5 },
       { skill: 'DigitalOcean', level: 5 },
 
       // DevOps
@@ -57,8 +59,6 @@ export const useSkillsStore = defineStore({
       { skill: 'Pinia', level: 4 },
       { skill: 'SPA', level: 4 },
       { skill: 'TailwindCSS', level: 4 },
-      { skill: 'React', level: 3 },
-      { skill: 'Redux', level: 3 },
       { skill: 'Axios', level: 3 },
       { skill: 'Ajax', level: 3 },
       { skill: 'JSON', level: 4 },
@@ -77,16 +77,21 @@ export const useSkillsStore = defineStore({
       { skill: 'Microsoft Teams', level: 5 },
 
       // Technologies
-      { skill: 'PHPSwoole', level: 4 },
+      { skill: 'PHP Parallel', level: 5 },
+      { skill: 'PHP Swoole', level: 4 },
       { skill: 'ElasticSearch', level: 5 },
       { skill: 'Workerman', level: 5 },
       { skill: 'socket.io', level: 5 },
       { skill: 'Pusher', level: 5 },
       { skill: 'Amazon S3', level: 5 },
+      { skill: 'Google Cloud Storage', level: 4 },
+      { skill: 'Cloudflare', level: 4 },
       { skill: 'Composer', level: 4 },
       { skill: 'npm', level: 4 },
       { skill: 'Git', level: 4 },
       { skill: 'RESTful API', level: 4 },
+      { skill: 'GraphQL', level: 4 },
+      { skill: 'gRPC', level: 4 },
 
       // Methodologies
       { skill: 'Event-Driven Architecture', level: 4 },
