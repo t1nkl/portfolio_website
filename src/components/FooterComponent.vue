@@ -2,7 +2,7 @@
 
 <template>
   <footer class="footer fade-component">
-    <div class="divider" role="presentation"><span></span></div>
+    <h2 class="divider" aria-hidden="true"><span></span></h2>
     <div class="footer-inner">
       <div class="copyright">
         &copy; With &#9829; on Vue.js & GSAP by t1nkl /

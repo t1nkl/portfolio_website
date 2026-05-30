@@ -42,6 +42,7 @@ let resizeObserver: ResizeObserver | null = null
 let lastWidth = 0
 let lastHeight = 0
 let layoutToken = 0 // invalidates in-flight async layouts when a newer one starts
+let activeLayout: { stop: () => void } | null = null // d3-cloud instance, stopped before re-layout
 
 // Map a skill weight (1..10) onto a font size scaled to the container so the
 // cloud fills the region the way vuewordcloud auto-fit did. The factor shrinks
@@ -77,7 +78,9 @@ function layout(animate = true) {
       size: Math.max(10, Math.round(8 + w.weight * f))
     }))
 
-    cloud<{ text: string; weight: number; size: number }>()
+    // Stop any still-running layout so rapid resizes don't pile up timers.
+    activeLayout?.stop()
+    activeLayout = cloud<{ text: string; weight: number; size: number }>()
       .size([width, height])
       .words(sized)
       .padding(1)
@@ -156,7 +159,10 @@ onMounted(async () => {
   if (container.value) resizeObserver.observe(container.value)
 })
 
-onBeforeUnmount(() => resizeObserver?.disconnect())
+onBeforeUnmount(() => {
+  resizeObserver?.disconnect()
+  activeLayout?.stop()
+})
 
 // Re-layout when the font / rotation strategy is re-rolled.
 watch(

@@ -21,9 +21,18 @@ const currentSrc = computed(() => (intersected.value ? props.src : props.srcPlac
 
 let observer: IntersectionObserver | null = null
 
-function onLoad() {
-  // Ignore the placeholder's load event; only the real image flips `loaded`.
-  if (intersected.value) loaded.value = true
+async function onLoad() {
+  // Only the REAL image flips `loaded` — ignore the placeholder's load event,
+  // and guard against a late/stale placeholder load firing after we've swapped
+  // src by confirming the element is actually showing props.src.
+  const el = img.value
+  if (!intersected.value || !el || el.getAttribute('src') !== props.src) return
+  try {
+    await el.decode() // ensure it's painted before clearing the blur
+  } catch {
+    // decode() can reject if the src changes again; fall through.
+  }
+  loaded.value = true
 }
 
 onMounted(() => {

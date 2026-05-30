@@ -11,7 +11,9 @@ const skillsStore = useSkillsStore()
 const projectsStore = useProjectsStore()
 
 function over(event: MouseEvent) {
-  const target = event.target as HTMLElement
+  // currentTarget is the .work element that owns the listener; event.target is
+  // often a child (img / bg divs), whose dataset.image would be undefined.
+  const target = event.currentTarget as HTMLElement
   const image = target.dataset.image
   if (!image) return
 
