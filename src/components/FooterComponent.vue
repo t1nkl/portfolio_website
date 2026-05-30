@@ -2,11 +2,13 @@
 
 <template>
   <footer class="footer fade-component">
-    <h2 class="divider"><span></span></h2>
+    <h2 class="divider" aria-hidden="true"><span></span></h2>
     <div class="footer-inner">
       <div class="copyright">
         &copy; With &#9829; on Vue.js & GSAP by t1nkl /
-        <a href="https://github.com/t1nkl/portfolio_website" target="_blank">GITHUB THIS</a>
+        <a href="https://github.com/t1nkl/portfolio_website" target="_blank" rel="noopener"
+          >GITHUB THIS</a
+        >
       </div>
       <div class="extra">
         <ul>

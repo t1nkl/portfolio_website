@@ -1,0 +1,14 @@
+/*
+ * Tailwind v4, adopted ADDITIVELY. Theme + utilities only — Preflight (the base
+ * reset) is intentionally omitted so the existing hand-written SCSS keeps owning
+ * the rendered look. Utilities are available in templates for any NEW markup.
+ * Imported first in main.ts so author CSS wins on any conflict.
+ */
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Brand tokens, available as utilities (e.g. text-ink, bg-brand-green). */
+@theme {
+  --color-ink: #363636;
+  --color-brand-green: #a5d6a7;
+}

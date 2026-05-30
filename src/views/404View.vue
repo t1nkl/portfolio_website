@@ -4,7 +4,7 @@ import { onMounted } from 'vue'
 
 function dotsAnimation() {
   // Create the timeline for the dots animation
-  var tl = gsap.timeline({ repeat: -1 })
+  const tl = gsap.timeline({ repeat: -1 })
 
   // Set the initial position and size of the dots
   tl.set('.dot', { scale: 0, autoAlpha: 0 })
@@ -19,17 +19,17 @@ function dotsAnimation() {
     .to('.dot-large', { duration: 0.5, scale: 0, autoAlpha: 0, ease: 'power1.inOut' }, 2.5)
 
   // Set the starting position of all the dots
-  const dots = document.querySelectorAll('.dot')
-  dots.forEach(function (dot: Element) {
-    setDotPosition(dot as HTMLElement)
+  const dots = document.querySelectorAll<HTMLElement>('.dot')
+  dots.forEach(function (dot) {
+    setDotPosition(dot)
   })
 
   // Set the starting position of the dots
   function setDotPosition(dot: HTMLElement) {
-    var x = Math.random() * window.innerWidth
-    var y = Math.random() * window.innerHeight
-    var size = parseInt(dot.style.width)
-    var offset = size / 2
+    const x = Math.random() * window.innerWidth
+    const y = Math.random() * window.innerHeight
+    const size = parseInt(dot.style.width)
+    const offset = size / 2
     dot.style.left = x - offset + 'px'
     dot.style.top = y - offset + 'px'
   }
@@ -47,12 +47,11 @@ function dotsAnimation() {
     },
     onUpdate: function () {
       // Keep the dots within the window bounds
-      // @ts-ignore-next-line
-      dots.forEach(function (dot: HTMLElement) {
-        var x = parseInt(dot.style.left)
-        var y = parseInt(dot.style.top)
-        var size = parseInt(dot.style.width)
-        var offset = size / 2
+      dots.forEach(function (dot) {
+        const x = parseInt(dot.style.left)
+        const y = parseInt(dot.style.top)
+        const size = parseInt(dot.style.width)
+        const offset = size / 2
         if (x < -offset) {
           dot.style.left = window.innerWidth + offset + 'px'
         } else if (x > window.innerWidth - offset) {

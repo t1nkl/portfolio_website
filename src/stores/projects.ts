@@ -5,8 +5,7 @@ interface ProjectsState {
   projectsList: Project[]
 }
 
-export const useProjectsStore = defineStore({
-  id: 'projects',
+export const useProjectsStore = defineStore('projects', {
   state: (): ProjectsState =>
     <ProjectsState>{
       projectsList: [

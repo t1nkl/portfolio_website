@@ -5,8 +5,7 @@ interface TimelineState {
   timelineList: Timeline[]
 }
 
-export const useTimelineStore = defineStore({
-  id: 'timeline',
+export const useTimelineStore = defineStore('timeline', {
   state: (): TimelineState => ({
     timelineList: [
       {

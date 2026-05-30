@@ -1,0 +1,18 @@
+// Shared responsive media-query mixin.
+// Auto-injected into every <style lang="scss"> block and .scss file via
+// vite.config.ts `css.preprocessorOptions.scss.additionalData`, so it no longer
+// needs to be redefined per component. Mixins/variables/functions only — keep
+// this file free of top-level selectors so the injection emits zero CSS.
+@mixin maxquery($width, $ratio: false) {
+  @if $ratio {
+    @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
+      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
+      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $width) {
+      @content;
+    }
+  }
+}

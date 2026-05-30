@@ -1,18 +1,12 @@
 <script setup lang="ts">
-import { computed, onBeforeMount, ref, watch, reactive } from 'vue'
-import VueWordCloud from 'vuewordcloud'
+import { computed, onBeforeMount, ref, watch } from 'vue'
 import { useSkillsStore } from '@/stores/skills'
 import { useRoute } from 'vue-router'
 import { vueWordCloudRotationItems } from '@/utils/vueWordCloudRotationItems'
 import TextFlip from '@/components/animations/TextFlip.vue'
+import SkillsWordCloud from '@/components/SkillsWordCloud.vue'
 
 const skillsStore = useSkillsStore()
-
-const enterAnimation = {
-  opacity: 0,
-  transform: 'scale3d(0.3,0.3,0.3)',
-  transition: 'all 0.5s ease-out'
-}
 
 /**
  * Font Family
@@ -40,33 +34,17 @@ const rotation = computed(() => {
 })
 
 /**
- * Watch Route
+ * Re-roll the font + rotation whenever the Skills route is (re)entered.
+ * Watching `route.path` (a primitive) makes the callback actually fire on
+ * navigation — the previous `watch(() => route, ...)` watched the route object
+ * by identity, which never changes, so it never ran.
  */
 const route = useRoute()
 watch(
-  () => route,
+  () => route.path,
   () => {
     fontFamily.value = fontFamilyValues[Math.floor(Math.random() * fontFamilyValues.length)]
     rotationItem.value = Math.floor(Math.random() * rotationItemsValues.length)
-  }
-)
-
-/**
- * Progress
- */
-const state = reactive({
-  progress: null,
-  progressVisible: true
-})
-const updateProgress = function (value: null) {
-  state.progress = value
-}
-watch(
-  () => state.progress,
-  (currentProgress: number | null, previousProgress: number | null) => {
-    if (previousProgress) {
-      state.progressVisible = false
-    }
   }
 )
 
@@ -93,53 +71,18 @@ onBeforeMount(() => {
       class="vue-word-cloud"
       style="margin-top: -3vh; height: 110vh; position: relative; width: 100%"
     >
-      <div
-        style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; transition-duration: 1s"
-        :style="
-          state.progressVisible && state.progress
-            ? {
-                filter: 'blur(8px)',
-                // opacity: 0.3,
-                // pointerEvents: 'none',
-                // transform: 'scale(0.7,0.7)',
-                transition: 'all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0)'
-              }
-            : {}
-        "
-      >
-        <VueWordCloud
-          :animation-duration="5000"
-          :animation-easing="'ease-in'"
-          :animation-overlap="0"
-          :color="skillsStore.getRandomColor"
-          :font-family="fontFamily"
-          :rotation="rotation"
-          :spacing="1 / 5"
-          :words="skillsStore.getSkillsListArray"
-          :enter-animation="enterAnimation"
-          v-on:update:progress="updateProgress"
-          class="cloud_tag"
-        />
-      </div>
+      <SkillsWordCloud
+        :words="skillsStore.getSkillsListArray"
+        :font-family="fontFamily || 'Open Sans'"
+        :rotation="rotation"
+        :color="skillsStore.getRandomColor"
+      />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-// mixins - media query
-@mixin maxquery($width, $ratio: false) {
-  @if $ratio {
-    @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
-      @content;
-    }
-  } @else {
-    @media only screen and (max-width: $width) {
-      @content;
-    }
-  }
-}
+// maxquery mixin is injected globally via vite.config.ts (additionalData)
 
 .author-holder {
   // social

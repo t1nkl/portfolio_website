@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import type { PropType } from 'vue'
+import { ref, onMounted, type PropType } from 'vue'
 
 const props = defineProps({
   staticWords: {
@@ -17,11 +16,6 @@ const props = defineProps({
   }
 })
 
-interface DomElements {
-  text_morph_1_ref: HTMLElement
-  text_morph_2_ref: HTMLElement
-}
-
 const TEXTS = props.dynamicWords as string[]
 
 const MORPH_TIME: number = 1
@@ -32,10 +26,8 @@ let morph: number = 0
 let cooldown: number = COOLDOWN_TIME
 let time: Date = new Date()
 
-const domElements: DomElements = {
-  text_morph_1_ref: ref<HTMLElement>() as unknown as HTMLElement,
-  text_morph_2_ref: ref<HTMLElement>() as unknown as HTMLElement
-}
+const text_morph_1_ref = ref<HTMLElement | null>(null)
+const text_morph_2_ref = ref<HTMLElement | null>(null)
 
 const doMorph = (): void => {
   morph -= cooldown
@@ -52,39 +44,33 @@ const doMorph = (): void => {
 }
 
 const setMorph = (fraction: number): void => {
-  const { text_morph_1_ref, text_morph_2_ref } = domElements
+  const el1 = text_morph_1_ref.value
+  const el2 = text_morph_2_ref.value
+  if (!el1 || !el2) return
 
-  // @ts-ignore-next-line
-  text_morph_2_ref.value.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`
-  // @ts-ignore-next-line
-  text_morph_2_ref.value.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`
+  el2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`
+  el2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`
 
   fraction = 1 - fraction
-  // @ts-ignore-next-line
-  text_morph_1_ref.value.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`
-  // @ts-ignore-next-line
-  text_morph_1_ref.value.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`
+  el1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`
+  el1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`
 
-  // @ts-ignore-next-line
-  text_morph_1_ref.value.textContent = TEXTS[textIndex % TEXTS.length]
-  // @ts-ignore-next-line
-  text_morph_2_ref.value.textContent = TEXTS[(textIndex + 1) % TEXTS.length]
+  el1.textContent = TEXTS[textIndex % TEXTS.length]
+  el2.textContent = TEXTS[(textIndex + 1) % TEXTS.length]
 }
 
 const doCooldown = (): void => {
   morph = 0
 
-  const { text_morph_1_ref, text_morph_2_ref } = domElements
+  const el1 = text_morph_1_ref.value
+  const el2 = text_morph_2_ref.value
+  if (!el1 || !el2) return
 
-  // @ts-ignore-next-line
-  text_morph_2_ref.value.style.filter = ''
-  // @ts-ignore-next-line
-  text_morph_2_ref.value.style.opacity = '100%'
+  el2.style.filter = ''
+  el2.style.opacity = '100%'
 
-  // @ts-ignore-next-line
-  text_morph_1_ref.value.style.filter = ''
-  // @ts-ignore-next-line
-  text_morph_1_ref.value.style.opacity = '0%'
+  el1.style.filter = ''
+  el1.style.opacity = '0%'
 }
 
 const animate = (): void => {
@@ -92,8 +78,7 @@ const animate = (): void => {
 
   const newTime = new Date()
   const shouldIncrementIndex = cooldown > 0
-  // @ts-ignore-next-line
-  const dt = (newTime - time) / 1000
+  const dt = (newTime.getTime() - time.getTime()) / 1000
   time = newTime
 
   cooldown -= dt
@@ -110,10 +95,8 @@ const animate = (): void => {
 }
 
 onMounted(() => {
-  // @ts-ignore-next-line
-  domElements.text_morph_1_ref.value = document.getElementById('text_morph__span_1')!
-  // @ts-ignore-next-line
-  domElements.text_morph_2_ref.value = document.getElementById('text_morph__span_2')!
+  text_morph_1_ref.value = document.getElementById('text_morph__span_1')
+  text_morph_2_ref.value = document.getElementById('text_morph__span_2')
 
   setTimeout(() => {
     animate()
