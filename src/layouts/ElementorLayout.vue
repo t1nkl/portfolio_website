@@ -1,23 +1,34 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { RouterView } from 'vue-router'
 import HeaderNavigation from '@/components/HeaderComponent.vue'
 import FooterNavigation from '@/components/FooterComponent.vue'
 </script>
 
 <template>
+  <a
+    href="#main"
+    class="absolute top-0 -left-[999px] z-[1000] rounded-br bg-brand-green px-4 py-2 text-ink focus:left-0"
+  >
+    Skip to content
+  </a>
+
   <HeaderNavigation />
 
-  <RouterView v-slot="{ Component, route }">
-    <transition mode="out-in" :name="route.meta.transition || 'fade'" appear>
-      <component :is="Component" />
-    </transition>
-  </RouterView>
+  <main id="main">
+    <RouterView v-slot="{ Component, route }">
+      <transition mode="out-in" :name="route.meta.transition || 'fade'" appear>
+        <component :is="Component" />
+      </transition>
+    </RouterView>
+  </main>
 
   <FooterNavigation />
 </template>
 
 <style lang="scss" scoped>
+// Skip-to-content link is styled with Tailwind utilities in the template above
+// (off-screen until focused). Everything below stays hand-written SCSS.
+
 // Fade transition
 .fade-enter-active,
 .fade-leave-active {

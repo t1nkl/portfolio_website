@@ -16,7 +16,7 @@ import TextMorph from '@/components/animations/TextMorph.vue'
         <br />
         <p>
           In the meantime, you can see my
-          <a href="/cv/Kyryll_Kovalenko_CV.pdf" target="_blank"><b>CV</b></a>
+          <a href="/cv/Kyryll_Kovalenko_CV.pdf" target="_blank" rel="noopener"><b>CV</b></a>
         </p>
       </div>
 
@@ -25,7 +25,12 @@ import TextMorph from '@/components/animations/TextMorph.vue'
       <div class="social">
         <ul>
           <li>
-            <a href="https://www.facebook.com/t1nkl/" target="_blank">
+            <a
+              href="https://www.facebook.com/t1nkl/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+            >
               <div class="logo-bg-holder">
                 <div class="logo-bg social-oval-big rotating-slow"></div>
               </div>
@@ -33,7 +38,12 @@ import TextMorph from '@/components/animations/TextMorph.vue'
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/t1nkl/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/t1nkl/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
               <div class="logo-bg-holder">
                 <div class="logo-bg social-circle rotating-fast"></div>
               </div>
@@ -41,7 +51,7 @@ import TextMorph from '@/components/animations/TextMorph.vue'
             </a>
           </li>
           <li>
-            <a href="https://github.com/t1nkl/" target="_blank">
+            <a href="https://github.com/t1nkl/" target="_blank" rel="noopener" aria-label="GitHub">
               <div class="logo-bg-holder">
                 <div class="logo-bg social-oval-small rotating-slow"></div>
               </div>

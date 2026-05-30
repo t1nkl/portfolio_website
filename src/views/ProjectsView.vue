@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import VLazyImage from 'v-lazy-image'
 import { FastAverageColor } from 'fast-average-color'
 import { useProjectsStore } from '@/stores/projects'
 import { useSkillsStore } from '@/stores/skills'
 import TextFlip from '@/components/animations/TextFlip.vue'
+import LazyImage from '@/components/LazyImage.vue'
+
+const PLACEHOLDER = 'https://cdn-images-1.medium.com/max/80/1*xjGrvQSXvj72W4zD6IWzfg.jpeg'
 
 const skillsStore = useSkillsStore()
 const projectsStore = useProjectsStore()
 
 function over(event: MouseEvent) {
   const target = event.target as HTMLElement
+  const image = target.dataset.image
+  if (!image) return
 
   new FastAverageColor()
-    .getColorAsync(target.dataset.image)
+    .getColorAsync(image)
     .then((color) => {
       document.getElementsByTagName('body')[0].style.backgroundColor = color.hex
     })
@@ -46,11 +50,11 @@ function leave() {
         @mouseenter="over($event)"
         @mouseleave="leave()"
       >
-        <VLazyImage
+        <LazyImage
           :alt="'t1nkl - Web Developer - Projects - ' + project.title"
           :src="project.image"
+          :src-placeholder="PLACEHOLDER"
           class="logo"
-          src-placeholder="https://cdn-images-1.medium.com/max/80/1*xjGrvQSXvj72W4zD6IWzfg.jpeg"
         />
 
         <div class="logo-bg-holder">
@@ -88,20 +92,7 @@ function leave() {
 </template>
 
 <style lang="scss" scoped>
-// mixins - media query
-@mixin maxquery($width, $ratio: false) {
-  @if $ratio {
-    @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
-      @content;
-    }
-  } @else {
-    @media only screen and (max-width: $width) {
-      @content;
-    }
-  }
-}
+// maxquery mixin is injected globally via vite.config.ts (additionalData)
 
 .projects {
   .v-lazy-image {

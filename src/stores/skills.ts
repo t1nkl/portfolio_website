@@ -6,8 +6,7 @@ interface SkillsState {
   colorList: string[]
 }
 
-export const useSkillsStore = defineStore({
-  id: 'skills',
+export const useSkillsStore = defineStore('skills', {
   state: (): SkillsState => ({
     skillsList: [
       // Language
@@ -65,6 +64,7 @@ export const useSkillsStore = defineStore({
 
       // Event Driven
       { skill: 'RabbitMQ', level: 6 },
+      { skill: 'Apache Kafka', level: 6 },
       { skill: 'AWS SQS', level: 6 },
 
       // Testing
@@ -98,6 +98,7 @@ export const useSkillsStore = defineStore({
       { skill: 'Service Oriented Architecture', level: 4 },
       { skill: 'Microservice Architecture', level: 4 },
       { skill: 'Event Sourcing', level: 4 },
+      { skill: 'Domain-Driven Design', level: 4 },
       { skill: 'TDD', level: 4 },
       { skill: 'DRY', level: 4 },
       { skill: 'KISS', level: 4 },

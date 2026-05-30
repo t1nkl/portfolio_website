@@ -1,20 +1,6 @@
-//@import './base.css';
-@import './fonts.css';
-
-// mixins - media query
-@mixin maxquery($width, $ratio: false) {
-  @if $ratio {
-    @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
-      @content;
-    }
-  } @else {
-    @media only screen and (max-width: $width) {
-      @content;
-    }
-  }
-}
+// Fonts are loaded via `import './assets/fonts.css'` in main.ts (kept out of Sass
+// so the modern compiler doesn't warn on a plain-CSS @import). The maxquery mixin
+// is injected globally via vite.config.ts additionalData (@/assets/styles/mixins).
 
 // variables
 $black: #363636;
@@ -155,5 +141,27 @@ body {
   // components
   .fade-component {
     width: 100%;
+  }
+}
+
+// Keyboard focus visibility (WCAG 2.4.7) — only shows on keyboard nav, never on
+// mouse click, so the look is unchanged for pointer users.
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #a5d6a7;
+  outline-offset: 2px;
+}
+
+// Respect users who ask for less motion: neutralize the heavy route/keyframe
+// transitions. GSAP intro timelines still set final visible states, so content
+// stays fully visible — it just appears without the long animated reveal.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

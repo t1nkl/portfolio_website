@@ -45,20 +45,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-// mixins - media query
-@mixin maxquery($width, $ratio: false) {
-  @if $ratio {
-    @media only screen and (max-width: $width) and (min--moz-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (-webkit-min-device-pixel-ratio: $ratio),
-      only screen and (max-width: $width) and (min-device-pixel-ratio: $ratio) {
-      @content;
-    }
-  } @else {
-    @media only screen and (max-width: $width) {
-      @content;
-    }
-  }
-}
+// maxquery mixin is injected globally via vite.config.ts (additionalData)
 
 .home-holder {
   position: absolute;
